@@ -1,8 +1,11 @@
+import java.util.Vector;
 
-public class Context {
 
-	private Volatility volatility;
+public class Context
+{
 	private int nbrSample;
 	private int resultStep;
-	private float timeStep;
+	private Date currentDay;
+	private Vector<MarketPrice> marketPrices;
+	private Vector<FinancialProduct> financialProducts;
 }
