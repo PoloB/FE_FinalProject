@@ -1,5 +1,11 @@
+
 public class Date
 {
+	
+	private int day;
+	private int month;
+	private int year;
+	
 	public Date()
 	{
 		//TO DO
@@ -45,7 +51,4 @@ public class Date
 		//TO DO
 	}
 	
-	private int day;
-	private int month;
-	private int year;
 }
