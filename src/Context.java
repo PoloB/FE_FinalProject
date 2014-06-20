@@ -1,8 +1,15 @@
 
 public class Context {
 
-	private Volatility volatility;
-	private int nbrSample;
+//	private Parser configFile;
+	private int numberSample;
 	private int resultStep;
 	private float timeStep;
+	
+	public Context(Parser configFile){
+//		this.numberSample = configFile.;
+	}
+	
+	
+	
 }

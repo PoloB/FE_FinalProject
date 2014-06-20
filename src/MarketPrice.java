@@ -1,7 +1,7 @@
 
 public abstract class MarketPrice {
 	
-	private MarketPrice coraletedSharePrice;
+	private MarketPrice correlatedSharePrice;
 	protected Volatility volatility;
 	protected float currentPrice;
 	
