@@ -3,34 +3,34 @@ public class Result
 {
 	Result()
 	{
-		//TO DO
+		profitAverage = 0.f;
+		profitVariance = 0.f;
 	}
 	
 	void setProfitAverage(float profit_average)
 	{
-		//TO DO
+		profitAverage = profit_average;
 	}
 	
 	void setProfitVariance(float profit_variance)
 	{
-		//TO DO
+		profitVariance = profit_variance;
 	}
 	
 	float getProfitAverage()
 	{
-		//TO DO
-		//return ;
+		return profitAverage;
 	}
 	
 	float getProfitVariance()
 	{
-		//TO DO
-		//return ;
+		return profitVariance;
 	}
 	
 	void display()
 	{
-		
+		System.out.println("Mean: " + profitAverage);
+		System.out.println("Variance" + profitVariance);
 	}
 	
 	private float profitAverage;
