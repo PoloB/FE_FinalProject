@@ -82,7 +82,7 @@ public class Date
 		//Check 
 		
 		//Check for leap year
-		boolean isLeap = (year%4 == 0);
+		boolean isLeap = ((year%4 == 0 && year%100 != 0) || year%400 == 0);
 		int monthSize;
 		
 		//Get the number of days in the month
