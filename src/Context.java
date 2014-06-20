@@ -1,15 +1,16 @@
+import java.util.Vector;
 
-public class Context {
 
-//	private Parser configFile;
-	private int numberSample;
+public class Context
+{
+	private int nbrSample;
 	private int resultStep;
-	private float timeStep;
-	
+	private Date currentDay;
+	private Vector<MarketPrice> marketPrices;
+	private Vector<FinancialProduct> financialProducts;
+
 	public Context(Parser configFile){
-//		this.numberSample = configFile.;
+	//	this.numberSample = configFile.;
 	}
-	
-	
-	
+
 }
