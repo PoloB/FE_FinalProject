@@ -13,26 +13,26 @@ public class Context
 	public Context(Parser configFile)
 	{
 		String[] ss = configFile.getLine(3).split(" ");
-		this.numberSample = Integer.parseInt(ss[2]);
+		numberSample = Integer.parseInt(ss[2]);
 		
 		ss = configFile.getLine(4).split(" ");
-		this.resultStep = Integer.parseInt(ss[2]);
+		resultStep = Integer.parseInt(ss[2]);
 		
 		ss = configFile.getLine(5).split("[ /]");
-		this.currentDay = new Date(
+		currentDay = new Date(
 									Integer.parseInt(ss[2]),
 									Integer.parseInt(ss[3]),
 									Integer.parseInt(ss[4])
 								  );
 		
 		ss = configFile.getLine(0).split("[ ,]");
-		this.marketPrices = new Vector<MarketPrice>();
-		marketPrices.addElement(new MarketPrice(ss[2]));
-		marketPrices.addElement(new MarketPrice(ss[3]));
+		marketPrices = new Vector<MarketPrice>();
+		marketPrices.addElement(new MarketPrice(ss[2],currentDay));
+		marketPrices.addElement(new MarketPrice(ss[3],currentDay));
 	}
 
-	public void setFinancialProduct(FinancialProduct financialProduct){
-		this.financialProduct=financialProduct;
+	public void setFinancialProduct(FinancialProduct fP){
+		financialProduct=fP;
 	}
 	
 }
