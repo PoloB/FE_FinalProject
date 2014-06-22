@@ -1,39 +1,65 @@
+import java.util.Vector;
 
 public class Result
 {
 	Result()
 	{
-		profitAverage = 0.f;
-		profitVariance = 0.f;
+		profits = new Vector<Float>();
 	}
 	
-	void setProfitAverage(float profit_average)
+	void addProfit(float p)
 	{
-		profitAverage = profit_average;
+		profits.addElement(p);
 	}
 	
-	void setProfitVariance(float profit_variance)
+	Vector<Float> getProfits()
 	{
-		profitVariance = profit_variance;
+		return profits;
 	}
 	
-	float getProfitAverage()
+	float mean()
 	{
-		return profitAverage;
+		float m = 0.f;
+		if(profits.size()>0)
+		{
+			for (int i=0; i<profits.size(); i++)
+			{
+				m += profits.elementAt(i);
+			}
+			m /= profits.size();
+		}
+		else
+		{
+			
+		}
+		return m; 
 	}
 	
-	float getProfitVariance()
+	float variance()
 	{
-		return profitVariance;
+		float v = 0.f;
+		float m = mean();
+		if(profits.size()>1)
+		{
+			for (int i=0; i<profits.size(); i++)
+			{
+				v += Math.pow(profits.elementAt(i)-m,2);
+			}
+			v = (float)Math.sqrt(v/profits.size()-1);
+		}
+		else
+		{
+			
+		}
+		return v;
 	}
 	
 	void display()
 	{
-		System.out.println("Mean: " + profitAverage);
-		System.out.println("Variance" + profitVariance);
+		System.out.println("Mean: " + mean());
+		System.out.println("Variance: " + variance());
 	}
 	
-	private float profitAverage;
-	private float profitVariance;
+	private Vector<Float> profits;
 	
 }
