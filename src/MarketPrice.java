@@ -1,48 +1,81 @@
 import java.util.Vector;
 
 
-public class MarketPrice {
+public class MarketPrice
+{
+	private float volatility;
+	private float initialPrice;
+	private float currentPrice;
+	private Date startingDay;
+	private String name;
+	private Vector<Integer> weeklyClosedDays = new Vector<Integer>();
+	private Vector<Date> holidays = new Vector<Date>();
+	private Vector<Float> historicalData;
 	
-	public MarketPrice(String n,Date sD) {
-		name = n;
-		startingDay = sD;
-//		initialPrice = ;
-		this.createWeeklyClosedDays();
-		this.createHolidays();
-	}
-	
-	public void createWeeklyClosedDays() {
-		weeklyClosedDays.addElement(5); /*Saturday*/
-		weeklyClosedDays.addElement(6); /*Sunday*/
-	}
-	
-	public void createHolidays() {
-		if (name=="SandP500")
+	public MarketPrice(String marketName, Date today, int historicalDataSize)
+	{
+		// Create a parser to get the information about the market Price
+		Parser p = new Parser();
+		p.setInputFileName(marketName + ".txt");
+		name = marketName;
+		
+		//Weekly closed days
+		String[] ss1 = p.getLine(1).split(" ");
+		String s = ss1[2];
+		ss1 = s.split("[,;]");
+		int nbrWCdays = ss1.length;
+		
+		for(int i=0; i<nbrWCdays; ++i)
+			weeklyClosedDays.add(Integer.parseInt(ss1[i]));
+		
+		//Holydays
+		ss1 = p.getLine(2).split(" ");
+		s = ss1[2];
+		ss1 = s.split("[,;]");
+		nbrWCdays = ss1.length;
+		
+		for(int i=0; i<nbrWCdays; ++i)
+			holidays.add(new Date(ss1[i]));
+		
+		
+		//Set historical data
+		historicalData = new Vector<Float>();
+		p.setInputFileName(marketName + ".csv");
+		Date evaluatedDay = new Date(today);
+		Date endEvaluation = new Date(today);
+		int newMonth = (endEvaluation.getMonth() - historicalDataSize+12)%12;
+		
+		int t= endEvaluation.getMonth() - historicalDataSize;
+		int newYear = endEvaluation.getYear();
+		
+		if(t <= 0)
 		{
-			int[] day = {1,20,17,18,26,4,1,27,24,25};
-			int[] month = {1,1,2,4,5,7,9,11,12,12};
-			int year = 2014;
-			this.calculateHolidays(day, month, year);
-//			holidays.addElement(new Date(1,1,2014));
-//			holidays.addElement(new Date(20,1,2014));
-//			holidays.addElement(new Date(17,2,2014));
-//			holidays.addElement(new Date(18,4,2014));
-//			holidays.addElement(new Date(26,5,2014));
-//			holidays.addElement(new Date(4,7,2014));
-//			holidays.addElement(new Date(1,9,2014));
-//			holidays.addElement(new Date(27,11,2014));
-//			holidays.addElement(new Date(24,12,2014));
-//			holidays.addElement(new Date(25,12,2014));
+			newYear -= Math.abs(endEvaluation.getMonth() - historicalDataSize)/12 +1;
 		}
-		else if (name=="Nikkei225")
+		
+		endEvaluation.setMonth(newMonth);
+		endEvaluation.setYear(newYear);
+		Date dateInFile = new Date();
+		
+		int i=0;
+		
+		while(evaluatedDay.isGreaterThan(endEvaluation))
 		{
+			//Get the current line in the csv file
+			ss1 = p.getLine(i).split(";");
+			dateInFile = Date.toDate(ss1[0]);
 			
+			if(evaluatedDay.isEqualTo(dateInFile))
+			{
+				historicalData.add(Float.parseFloat(ss1[1]));
+				i++;
+			}
+			else
+			{
+				historicalData.add(0.f);
+			}
+				evaluatedDay.previous();
 		}
-		else if (name=="EuroStoxx50")
-		{
-			
-		}
-			
 	}
 	
 	public void calculateHolidays(int[] d,int[] m, int y)
@@ -62,43 +95,53 @@ public class MarketPrice {
 		}
 	}
 	
-	public void createHistoricalData() {
+	public void createHistoricalData()
+	{
 		
 	}
 	
-	public void setVolatility(float v) {
+	public void setVolatility(float v)
+	{
 		volatility = v;
 	}
 	
-	public Vector<Float> getHitoricalData() {
+	public Vector<Float> getHitoricalData()
+	{
 		return this.historicalData;
 	}
 	
-	public void setCurrentPrice(float cP) {
+	public void setCurrentPrice(float cP)
+	{
 		currentPrice = cP;
 	}
 	
-	public float getInitialPrice() {
+	public float getInitialPrice()
+	{
 		return initialPrice;
 	}
 	
-	public float getCurrentPrice() {
+	public float getCurrentPrice()
+	{
 		return currentPrice;
 	}
 	
-	public void getNextPath(){
+	public void getNextPath()
+	{
 		
 	}
 	
-	private float volatility;
-	private float initialPrice;
-	private float currentPrice;
-	private Date startingDay;
-	private String name = new String();
-	private Vector<Integer> weeklyClosedDays = new Vector<Integer>();
-	private Vector<Date> holidays = new Vector<Date>();
-	private Vector<Float> historicalData;
+	public String getName()
+	{
+		return name;
+	}
 	
+	public void displayHistoricalData()
+	{
+		for(int i=0; i < historicalData.size(); ++i)
+		{
+			System.out.println(historicalData.elementAt(i));
+		}
+	}
 }
 
 

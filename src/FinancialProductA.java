@@ -1,9 +1,10 @@
 import java.util.Vector;
 
 
-public class FinancialProductA extends FinancialProduct {
-
-	public FinancialProductA() {
+public class FinancialProductA extends FinancialProduct
+{
+	public FinancialProductA()
+	{
 		startDate = new Date(23,4,2014);
 		endDate = new Date(23,4,2019);
 		knockInValue = 0.49f;
@@ -16,10 +17,12 @@ public class FinancialProductA extends FinancialProduct {
 		interestPaymentDates.addElement(new Date(23,10,2014));
 	}
 	
-	public void calculateInterestRate(Vector<MarketPrice> mP) {
+	public void calculateInterestRate(Vector<MarketPrice> mP)
+	{
 		int i = 0;
 		boolean areUpper = true, isFirst = false;
 		MarketPrice temp;
+		
 		while (i<mP.size() && areUpper == true)
 		{
 			temp = mP.get(i);
@@ -27,6 +30,7 @@ public class FinancialProductA extends FinancialProduct {
 				areUpper = false ;
 			i++;
 		}
+		
 		interestRate = (areUpper == true || isFirst == true) ? 5.7f : 1.f;
 	}
 	
