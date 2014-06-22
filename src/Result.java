@@ -43,9 +43,9 @@ public class Result
 		{
 			for (int i=0; i<profits.size(); i++)
 			{
-				v += Math.sqrt(profits.elementAt(i)-m);
+				v += Math.pow(profits.elementAt(i)-m,2);
 			}
-			v /= profits.size()-1;
+			v = (float)Math.sqrt(v/profits.size()-1);
 		}
 		else
 		{
