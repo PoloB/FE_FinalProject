@@ -6,6 +6,7 @@ public class MarketPrice {
 	public MarketPrice(String n,Date sD) {
 		name = n;
 		startingDay = sD;
+//		initialPrice = ;
 		this.createWeeklyClosedDays();
 		this.createHolidays();
 	}
@@ -61,8 +62,12 @@ public class MarketPrice {
 		}
 	}
 	
-	public void setVolatility(float volatility) {
-		this.volatility = volatility;
+	public void createHistoricalData() {
+		
+	}
+	
+	public void setVolatility(float v) {
+		volatility = v;
 	}
 	
 	public Vector<Float> getHitoricalData() {
@@ -71,6 +76,10 @@ public class MarketPrice {
 	
 	public void setCurrentPrice(float cP) {
 		currentPrice = cP;
+	}
+	
+	public float getInitialPrice() {
+		return initialPrice;
 	}
 	
 	public float getCurrentPrice() {
@@ -82,6 +91,7 @@ public class MarketPrice {
 	}
 	
 	private float volatility;
+	private float initialPrice;
 	private float currentPrice;
 	private Date startingDay;
 	private String name = new String();
