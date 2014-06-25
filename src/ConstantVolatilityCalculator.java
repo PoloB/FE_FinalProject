@@ -3,14 +3,19 @@ import java.util.Vector;
 
 public class ConstantVolatilityCalculator extends VolatilityCalculator {
 
-	ConstantVolatilityCalculator(Vector<Float> historicalData) {
-		volatility = 0.f;
+	ConstantVolatilityCalculator() {}
+	
+	public void initialize(MarketPrice marketPrice)
+	{
+		float volatility = 0.f;
+		Vector<Float> historicalData = marketPrice.getHistoricalData();
+		
 		/* u(i) = ln(S(i)/S(i-1)) */
 		Vector<Float> historicalDataManipulated = new Vector<Float>();
 		for(int i=0; i<historicalData.size()-1; i++)
 		{
 			historicalDataManipulated.addElement(
-					(float)Math.log(historicalData.elementAt(i+1)/(historicalData.elementAt(i)))
+				(float)Math.log(historicalData.elementAt(i+1)/(historicalData.elementAt(i)))
 												);
 		}
 		/* mean of u(i) */
@@ -28,6 +33,6 @@ public class ConstantVolatilityCalculator extends VolatilityCalculator {
 		volatility = (float)Math.sqrt(volatility/historicalDataManipulated.size()-1);
 	}
 	
-	public void update(){}
+	public void update(MarketPrice marketPrice) {}
 	
 }

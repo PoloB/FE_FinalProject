@@ -74,7 +74,7 @@ public class MarketPrice
 			{
 				historicalData.add(0.f);
 			}
-				evaluatedDay.previous();
+			evaluatedDay.previous();
 		}
 	}
 	
@@ -100,30 +100,17 @@ public class MarketPrice
 		
 	}
 	
-	public void setVolatility(float v)
-	{
-		volatility = v;
-	}
+	public void setVolatility(float v) { volatility = v; }
 	
-	public Vector<Float> getHitoricalData()
-	{
-		return this.historicalData;
-	}
+	public void setCurrentPrice(float cP) { currentPrice = cP; }
 	
-	public void setCurrentPrice(float cP)
-	{
-		currentPrice = cP;
-	}
+	public float getVolatility() { return volatility; }
 	
-	public float getInitialPrice()
-	{
-		return initialPrice;
-	}
+	public Vector<Float> getHistoricalData() { return historicalData; }
 	
-	public float getCurrentPrice()
-	{
-		return currentPrice;
-	}
+	public float getInitialPrice() { return initialPrice; }
+	
+	public float getCurrentPrice() { return currentPrice; }
 	
 	public void getNextPath()
 	{
