@@ -27,5 +27,4 @@ public class ContinuousDiscount {
 	private Date startDay;
 	private Date endDay;
 	private Vector<Float> historicalRiskFreeRate;
-	
 }

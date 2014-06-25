@@ -9,12 +9,11 @@ public class PathGenerator
 {
 	private Vector<GeometricBrownianMotion> gbmGenerator;
 	
-	public PathGenerator(Vector<MarketPrice> marketPrices)
+	public PathGenerator(int numberOfMarketPrice)
 	{
 		gbmGenerator = new Vector<GeometricBrownianMotion>();
-		int nbrMarketPrice = marketPrices.size();
 		
-		for(int i=0; i< nbrMarketPrice; ++i)
+		for(int i=0; i< numberOfMarketPrice; ++i)
 		{
 			//TO DO
 			//Calculate the first mu and sigma
@@ -27,9 +26,10 @@ public class PathGenerator
 	}
 	
 	
+	
 	public void next(Vector<MarketPrice> marketPrices)
 	{	
-		Random rand = new Random();
+		/*Random rand = new Random();
 		
 		Vector<Float> randoms = new Vector<Float>();
 		for (int i=0; i<marketPrices.size(); ++i)
@@ -41,11 +41,13 @@ public class PathGenerator
 		randoms.setElementAt(cor*randoms.elementAt(0) + (float)(Math.sqrt(1-Math.pow((double)cor, 2)))*randoms.elementAt(1), 1);
 		
 		for (int i=0; i<marketPrices.size(); ++i)
-			marketPrices.get(i).setCurrentPrice(marketPrices.get(i).getCurrentPrice());
+			marketPrices.get(i).setCurrentPrice(marketPrices.get(i).getCurrentPrice());*/
+		
 		
 	}
 	
-	public float calculateCorrelation() {
+	public float calculateCorrelation()
+	{
 		float cor = 0.f;
 		return cor;
 	}
