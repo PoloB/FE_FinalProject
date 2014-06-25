@@ -3,14 +3,18 @@ import java.util.Vector;
 
 public class MarketPrice
 {
+	private float mean;
 	private float volatility;
-	private float initialPrice;
+	private float correlation;
+//	private float initialPrice;
 	private float currentPrice;
 	private Date startingDay;
 	private String name;
 	private Vector<Integer> weeklyClosedDays = new Vector<Integer>();
 	private Vector<Date> holidays = new Vector<Date>();
 	private Vector<Float> historicalData;
+    private Vector<Float> historicalReturn;	
+//	private Vector<Float> historicalChange;
 	
 	public MarketPrice(String marketName, Date today, int historicalDataSize)
 	{
@@ -95,20 +99,34 @@ public class MarketPrice
 		}
 	}
 	
-	public void createHistoricalData()
-	{
-		
-	}
+//	public void createHistoricalData()
+//	{
+//		
+//	}
+	
+	public void setMean(float m) { mean = m; }
 	
 	public void setVolatility(float v) { volatility = v; }
 	
+	public void setCorrelation(float c) { correlation = c; }
+	
 	public void setCurrentPrice(float cP) { currentPrice = cP; }
+	
+	public void setHistoricalReturn(Vector<Float> hR) { historicalReturn = hR; }
+	
+	public float getMean() { return mean; }
 	
 	public float getVolatility() { return volatility; }
 	
+	public float getCorrelation() { return correlation; }
+	
 	public Vector<Float> getHistoricalData() { return historicalData; }
 	
-	public float getInitialPrice() { return initialPrice; }
+	public Vector<Float> getHistoricalReturn() { return historicalReturn; }
+	
+//	public Vector<Float> getHistoricalChange() { return historicalChange; }
+	
+//	public float getInitialPrice() { return initialPrice; }
 	
 	public float getCurrentPrice() { return currentPrice; }
 	
