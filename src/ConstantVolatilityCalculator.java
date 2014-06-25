@@ -2,10 +2,14 @@
 
 public class ConstantVolatilityCalculator extends VolatilityCalculator
 {
-	ConstantVolatilityCalculator(){}
+	ConstantVolatilityCalculator()
+	{
+		
+	}
 	
-	public void update(){}
-
-	public void initialize(){}
+	public void update(MarketPrice marketPrice)
+	{
+		
+	}
 	
 }

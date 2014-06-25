@@ -49,9 +49,7 @@ public class MarketPrice
 		int newYear = endEvaluation.getYear();
 		
 		if(t <= 0)
-		{
 			newYear -= Math.abs(endEvaluation.getMonth() - historicalDataSize)/12 +1;
-		}
 		
 		endEvaluation.setMonth(newMonth);
 		endEvaluation.setYear(newYear);
@@ -71,72 +69,42 @@ public class MarketPrice
 				i++;
 			}
 			else
-			{
 				historicalData.add(0.f);
-			}
-				evaluatedDay.previous();
+			
+			evaluatedDay.previous();
 		}
 		
 		//Calculate First Volatility
-
-		
 		Vector<Float> historicalDataManipulated = new Vector<Float>();
 		
-		for(int j=0; i<historicalData.size()-1; i++)
-			historicalDataManipulated.addElement ( (float)Math.log( historicalData.elementAt(i+1) / (historicalData.elementAt(i) )));
+		for(int j=0; j<historicalData.size()-1; j++)
+			historicalDataManipulated.addElement ( (float)Math.log( historicalData.elementAt(j+1) / (historicalData.elementAt(j) )));
 		
 		/* mean of u(i) */
 		float mean = 0.f;
 		
-		for(int j=0; i<historicalDataManipulated.size(); i++)
-			mean += historicalDataManipulated.elementAt(i);
+		for(int j=0; j<historicalDataManipulated.size(); j++)
+			mean += historicalDataManipulated.elementAt(j);
 		
 		mean /= historicalDataManipulated.size();
 		/* volatility of u(i) */
 		
-		for (int j=0; i<historicalDataManipulated.size(); i++)
-			volatility += Math.pow(historicalDataManipulated.elementAt(i)-mean,2);
+		for (int j=0; j<historicalDataManipulated.size(); j++)
+			volatility += Math.pow(historicalDataManipulated.elementAt(j)-mean,2);
 		
 		volatility = (float)Math.sqrt(volatility/historicalDataManipulated.size()-1);
-		
 	}
 
 	//Getters
-	public Vector<Float> getHitoricalData()
-	{
-		return this.historicalData;
-	}
-	public String getName()
-	{
-		return name;
-	}
-	public float getCurrentPrice()
-	{
-		return currentPrice;
-	}
-	public float getInitialPrice()
-	{
-		return initialPrice;
-	}
+	public String getName() { return name; }
+	public float getVolatility() { return volatility; }
+	public Vector<Float> getHistoricalData() { return historicalData; }
+	public float getInitialPrice() { return initialPrice; }
+	public float getCurrentPrice() { return currentPrice; }
 	
 	//Setters
-	public void setCurrentPrice(float cP)
-	{
-		currentPrice = cP;
-	}
-	public void setVolatility(float v)
-	{
-		volatility = v;
-	}	
-	
-	//Displayers
-	public void displayHistoricalData()
-	{
-		for(int i=0; i < historicalData.size(); ++i)
-		{
-			System.out.println(historicalData.elementAt(i));
-		}
-	}
+	public void setCurrentPrice(float cP) { currentPrice = cP; }
+	public void setVolatility(float v) { volatility = v; }	
 
 	boolean hasClosingPrice(Date today)
 	{
