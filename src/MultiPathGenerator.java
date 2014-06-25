@@ -9,31 +9,24 @@ public class MultiPathGenerator
 {
 //	private Vector<Float> NormallyDistributedRandomNumbers;
 	Float mu;
-	Vector<Vector<Float>> volatility;
 	VolatilityCalculator volatilityCalculator;
 	
 	
 	public MultiPathGenerator(Vector<Vector<MarketPrice>> marketPrices, boolean isDynamic)
 	{
-		float mu = 1.0f;
+		float mu = 1.0f; // TO DO
 		
 		if (!isDynamic)
 			volatilityCalculator = new ConstantVolatilityCalculator();
 		else 
 			volatilityCalculator = new VariableVolatilityCalculator();
-		
-		volatility = new Vector<Vector<Float>>();
-		Vector<Float> tmp = new Vector<Float>();
-		float sigma;
+
 		for (int j=0; j< marketPrices.size(); ++j)
 		{
-			volatilityCalculator.initialize(marketPrices.get(j).get(0));
-			sigma = volatilityCalculator.getVolatility();
 			for (int i=0; i< marketPrices.get(j).size(); ++i)
 			{
-				tmp.addElement(sigma);
+				volatilityCalculator.initialize(marketPrices.get(j).get(i));
 			}
-			volatility.addElement(tmp);
 		}
 	}
 	

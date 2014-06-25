@@ -55,4 +55,24 @@ public class Context
 		}
 	}
 	
+	public int getNumberOfSample()
+	{
+		return numberSample;
+	}
+	
+	public int getNumberOfMarketPrice()
+	{
+		return marketPrices.size();
+	}
+	
+	public MarketPrice getMarketPrice(int i)
+	{
+		return marketPrices.get(i);
+	}
+	
+	public FinancialProduct getFinancialProduct()
+	{
+		return financialProduct;
+	}
+	
 }

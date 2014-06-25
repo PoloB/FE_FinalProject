@@ -18,15 +18,17 @@ public class VariableVolatilityCalculator extends VolatilityCalculator {
 					(historicalData.elementAt(i)-historicalData.elementAt(i+1))/historicalData.elementAt(i+1)
 												);
 		}
+		
 		/* Approximated volatility of u(i) */
 		for (int i=0; i<historicalDataManipulated.size(); i++)
 		{
 			volatility += Math.pow(historicalDataManipulated.elementAt(i),2);
 		}
-		volatility = (float)Math.sqrt(volatility/historicalDataManipulated.size());
+		marketPrice.setVolatility( (float)Math.sqrt(volatility / historicalDataManipulated.size()) );
 	}
 	
-	public void update(MarketPrice marketPrice){
+	public void update(MarketPrice marketPrice)
+	{
 		/* EWMA method (GARCH(1,1) with omega=0) */
 		
 		float volatility = marketPrice.getVolatility();
