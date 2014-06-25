@@ -7,7 +7,6 @@ public class ProductEstimation
 	{
 		Parser parser = new Parser();
 		parser.setInputFileName(args[0]);
-		Context context = new Context(parser);
 		
 		//Get the MC method
 		String mcs = parser.getLine(6).split(" ")[2];
@@ -21,6 +20,9 @@ public class ProductEstimation
 		if(mcs == "RQMC"){}
 			//TODO
 		
+		Context.get();
+		
 		MC.execute(context);
+		
 	}
 }

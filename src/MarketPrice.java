@@ -76,71 +76,85 @@ public class MarketPrice
 			}
 				evaluatedDay.previous();
 		}
-	}
-	
-	public void calculateHolidays(int[] d,int[] m, int y)
-	{
-//		Date day = startingDay;
-		int j = 0;
-		while(m[j] < startingDay.getMonth())
-		{
-			j++;
-		}
 		
-//		while()
-		for (int i=j; i< d.length; i++)
-		{
-			
-//			while 
-		}
-	}
-	
-	public void createHistoricalData()
-	{
+		//Calculate First Volatility
+
+		
+		Vector<Float> historicalDataManipulated = new Vector<Float>();
+		
+		for(int j=0; i<historicalData.size()-1; i++)
+			historicalDataManipulated.addElement ( (float)Math.log( historicalData.elementAt(i+1) / (historicalData.elementAt(i) )));
+		
+		/* mean of u(i) */
+		float mean = 0.f;
+		
+		for(int j=0; i<historicalDataManipulated.size(); i++)
+			mean += historicalDataManipulated.elementAt(i);
+		
+		mean /= historicalDataManipulated.size();
+		/* volatility of u(i) */
+		
+		for (int j=0; i<historicalDataManipulated.size(); i++)
+			volatility += Math.pow(historicalDataManipulated.elementAt(i)-mean,2);
+		
+		volatility = (float)Math.sqrt(volatility/historicalDataManipulated.size()-1);
 		
 	}
-	
-	public void setVolatility(float v)
-	{
-		volatility = v;
-	}
-	
+
+	//Getters
 	public Vector<Float> getHitoricalData()
 	{
 		return this.historicalData;
 	}
-	
-	public void setCurrentPrice(float cP)
+	public String getName()
 	{
-		currentPrice = cP;
+		return name;
 	}
-	
+	public float getCurrentPrice()
+	{
+		return currentPrice;
+	}
 	public float getInitialPrice()
 	{
 		return initialPrice;
 	}
 	
-	public float getCurrentPrice()
+	//Setters
+	public void setCurrentPrice(float cP)
 	{
-		return currentPrice;
+		currentPrice = cP;
 	}
-	
-	public void getNextPath()
+	public void setVolatility(float v)
 	{
-		
-	}
+		volatility = v;
+	}	
 	
-	public String getName()
-	{
-		return name;
-	}
-	
+	//Displayers
 	public void displayHistoricalData()
 	{
 		for(int i=0; i < historicalData.size(); ++i)
 		{
 			System.out.println(historicalData.elementAt(i));
 		}
+	}
+
+	boolean hasClosingPrice(Date today)
+	{
+		boolean result = true;
+		
+		for(int i=0; i<holidays.size(); ++i)
+		{
+			if(today.isEqualTo(holidays.get(i)))
+				result = false;
+		}
+		
+		for(int i=0; i<weeklyClosedDays.size(); ++i)
+		{
+			if(today.getWeekDay() == weeklyClosedDays.get(i))
+				result = false;
+		}
+		
+		return result;
 	}
 }
 

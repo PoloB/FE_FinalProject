@@ -3,35 +3,48 @@ import java.util.Vector;
 
 public class Context
 {
+	//Singleton
+	private static Context Instance = null; 
+	
 	private int numberSample;
 	private int resultStep;
+	private boolean dynamicVolatility;
 	private Date currentDay;
 //	private MarketPrice riskFreeRate;
 	private Vector<MarketPrice> marketPrices;
 	private FinancialProduct financialProduct;
 
-	public Context(Parser configFile)
+	private Context()
 	{
+		Parser parser = new Parser();
+		parser.setInputFileName("Data/config.txt");
 		marketPrices = new Vector<MarketPrice>();
+		
 		//Get the number of sample for the Monte Carlo simulation
-		String[] ss = configFile.getLine(3).split(" ");
+		String[] ss = parser.getLine(3).split(" ");
 		numberSample = Integer.parseInt(ss[2]);
 		
 		//Get the result Step
-		ss = configFile.getLine(4).split(" ");
+		ss = parser.getLine(4).split(" ");
 		resultStep = Integer.parseInt(ss[2]);
 		
 		//Get the simulation starting day
-		ss = configFile.getLine(5).split(" ");
+		ss = parser.getLine(5).split(" ");
 		currentDay = new Date(ss[2]);
 		
 		//Get the historical data size
-		ss = configFile.getLine(2).split(" ");
+		ss = parser.getLine(2).split(" ");
 		int historicalDataSize = Integer.parseInt(ss[2]);
-		System.out.println(historicalDataSize);
+		
+		//Get the type of volatility Calculator
+		ss = parser.getLine(1).split(" ");
+		if(Integer.parseInt(ss[2]) == 1)
+			dynamicVolatility = true;
+		else
+			dynamicVolatility = false;
 		
 		//Get the list of the market prices for the simulation 
-		ss = configFile.getLine(0).split(" ");
+		ss = parser.getLine(0).split(" ");
 		String s = ss[2];
 		ss = s.split("[,]");
 		for(int i=0; i<ss.length; ++i)
@@ -39,6 +52,20 @@ public class Context
 			MarketPrice mp = new MarketPrice(ss[i], currentDay, historicalDataSize);
 			marketPrices.add(mp);
 		}
+		
+		
+		
+		//Add the financial product
+		financialProduct = new FinancialProductA();
+		
+	}
+	
+	public static Context get()
+	{
+		if(Instance == null)
+			Instance = new Context();
+		
+		return Instance;
 	}
 
 	public void setFinancialProduct(FinancialProduct fP)
@@ -73,6 +100,11 @@ public class Context
 	public FinancialProduct getFinancialProduct()
 	{
 		return financialProduct;
+	}
+	
+	public Date getCurrentDay()
+	{
+		return currentDay;
 	}
 	
 }
