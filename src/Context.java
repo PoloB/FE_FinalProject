@@ -76,10 +76,7 @@ public class Context
 	public void displayMarketPrices()
 	{
 		for(int i=0; i < marketPrices.size(); ++i)
-		{
 			System.out.println(marketPrices.elementAt(i).getName());
-			marketPrices.elementAt(i).displayHistoricalData();
-		}
 	}
 	
 	public int getNumberOfSample()
@@ -97,6 +94,11 @@ public class Context
 		return marketPrices.get(i);
 	}
 	
+	public Vector<MarketPrice> getMarketPriceVector()
+	{
+		return marketPrices;
+	}
+	
 	public FinancialProduct getFinancialProduct()
 	{
 		return financialProduct;
@@ -105,6 +107,11 @@ public class Context
 	public Date getCurrentDay()
 	{
 		return currentDay;
+	}
+	
+	boolean volatilityIsDynamic()
+	{
+		return dynamicVolatility;
 	}
 	
 }

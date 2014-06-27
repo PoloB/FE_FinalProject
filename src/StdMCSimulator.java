@@ -13,27 +13,39 @@ public class StdMCSimulator extends MCSimulator
 	{
 		Context context = Context.get();
 		
-		//Get the number of samples
+		///////////////////////////
+		//Initialize the simulation
+		///////////////////////////
+		//Define Local variables for the simulation
 		int nbrSample = context.getNumberOfSample();
 		int nbrMarketPrice = context.getNumberOfMarketPrice();
-		
-		//Create the volatility calculator
-		
 		FinancialProduct financialProduct = context.getFinancialProduct();
 		
-		//Generate a uniformly distributed sample vector
-		Vector<Float> sVec = new Vector<Float> (nbrMarketPrice);
+		//Create the path generator for the simulation 
+		MultiPathGenerator mpg = new MultiPathGenerator(context.volatilityIsDynamic());
 		
-		Random rand = new Random();
+		//Initialize the vector of MarketPricePath
+		Vector<MarketPricePath> marketPricePaths = new Vector<MarketPricePath>(nbrSample);
 		
-		for(int j=0; j<nbrMarketPrice; ++j)
-			sVec.setElementAt(rand.nextFloat(), j);
+		for(int i=0; i<nbrSample; ++i)
+			marketPricePaths.setElementAt(new MarketPricePath(context.getMarketPriceVector()), i);
 		
-		//TO DO!!! Transform the uniformly distributed sample vector using a geometric brownian motion process
+		//Initialize the random Vector
+		Vector<Vector<Float> > randomVector = new Vector<Vector<Float> >(); //TODO
 		
 		
+
+		Date today = context.getCurrentDay();
+		
+		//MainLoop
+		while(financialProduct.getEndDate().isGreaterThan(today))
+		{
+			//Generate the today closingPrice for each path with correlation
+			mpg.nextPathFor(marketPricePaths, randomVector);
+		}
 		
 				
 	}
+	
 	
 }

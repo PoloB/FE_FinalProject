@@ -2,5 +2,5 @@
 
 public abstract class MCSimulator
 {
-	public abstract void execute();	
+	public abstract void execute();
 }

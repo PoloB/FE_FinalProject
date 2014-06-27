@@ -20,7 +20,6 @@ public class PathGenerator
 			float mu = 1.0f; //TO DO
 			float sigma = 1.0f; //TO DO
 			
-			
 			gbmGenerator.add(new GeometricBrownianMotion(100, mu, sigma, new MRG32k3a()));
 		}
 	}

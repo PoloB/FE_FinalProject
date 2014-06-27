@@ -31,6 +31,11 @@ public abstract class FinancialProduct
 		return interestPaymentDates;
 	}
 	
+	public Date getEndDate()
+	{
+		return endDate;
+	}
+	
 //	public void calculateInterestPaymentDates() {
 //		// TO DO
 //	}
