@@ -11,7 +11,8 @@ public class MarketPrice
 	private Vector<Integer> weeklyClosedDays = new Vector<Integer>();
 	private Vector<Date> holidays = new Vector<Date>();
 	private Vector<Float> historicalData;
-    private Vector<Float> historicalReturn;	
+    private Vector<Float> historicalReturn;
+    private int numberOfClosingDayPerYear;
 	
 	public MarketPrice(String marketName, Date today, int historicalDataSize)
 	{
@@ -19,6 +20,7 @@ public class MarketPrice
 		Parser p = new Parser();
 		p.setInputFileName(marketName + ".txt");
 		name = marketName;
+		
 		
 		//Weekly closed days
 		String[] ss1 = p.getLine(1).split(" ");
@@ -56,8 +58,12 @@ public class MarketPrice
 		endEvaluation.setYear(newYear);
 		Date dateInFile = new Date();
 		
-		int i=0;
+		//Set the current price
+		ss1 = p.getLine(0).split(";");
+		currentPrice = Float.parseFloat(ss1[1]);
 		
+		
+		int i=1;
 		while(evaluatedDay.isGreaterThan(endEvaluation))
 		{
 			//Get the current line in the csv file
@@ -70,33 +76,21 @@ public class MarketPrice
 				i++;
 			}
 			else
-				historicalData.add(0.f);
+				historicalData.add(-1.f);
 			
 			evaluatedDay.previous();
 		}
+		
 		
 		//Calculate First Volatility
 		Vector<Float> historicalDataManipulated = new Vector<Float>();
 		
 		for(int j=0; j<historicalData.size()-1; j++)
 			historicalDataManipulated.addElement ( (float)Math.log( historicalData.elementAt(j+1) / (historicalData.elementAt(j) )));
-		
-		/* mean of u(i) */
-		float mean = 0.f;
-		
-		for(int j=0; j<historicalDataManipulated.size(); j++)
-			mean += historicalDataManipulated.elementAt(j);
-		
-		mean /= historicalDataManipulated.size();
-		/* volatility of u(i) */
-		
-		for (int j=0; j<historicalDataManipulated.size(); j++)
-			volatility += Math.pow(historicalDataManipulated.elementAt(j)-mean,2);
-		
-		volatility = (float)Math.sqrt(volatility/historicalDataManipulated.size()-1);
 	}
 
 	//Getters
+	public float getCurrentPrice() { return currentPrice; }
 	public String getName() { return name; }
 	public float getVolatility() { return volatility; }
 	public Vector<Float> getHistoricalData() { return historicalData; }
@@ -110,7 +104,7 @@ public class MarketPrice
 	public void setHistoricalDataMean(float m) { mean = m; }
 	
 	//Miscenallous
-	boolean hasClosingPrice(Date today)
+	public boolean hasClosingPrice(Date today)
 	{
 		boolean result = true;
 		

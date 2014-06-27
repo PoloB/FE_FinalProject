@@ -30,7 +30,6 @@ public class DynamicVolatilityCalculator extends VolatilityCalculator {
 		
 		float volatility = marketPrice.getVolatility();
 		Vector<Float> historicalData = marketPrice.getHistoricalData();
-		Vector<Float> historicalChange = marketPrice.getHistoricalReturn(); 
 		
 		/* Weight of previous volatility */
 		float lambda = 0.94f;
@@ -40,10 +39,6 @@ public class DynamicVolatilityCalculator extends VolatilityCalculator {
 		
 		/* New volatility */
 		marketPrice.setVolatility( (float)Math.sqrt( lambda*Math.pow(volatility,2)+(1-lambda)*Math.pow(mostRecentChange,2) ) );
-	
-		historicalChange.removeElementAt( historicalChange.size()-1 );
-		historicalChange.insertElementAt( mostRecentChange,0 );
-		marketPrice.setHistoricalReturn( historicalChange );
 	}
 	
 }
