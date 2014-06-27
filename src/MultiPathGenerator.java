@@ -1,22 +1,28 @@
-import java.util.Random;
 import java.util.Vector;
 
-import umontreal.iro.lecuyer.rng.MRG32k3a;
-import umontreal.iro.lecuyer.stochprocess.GeometricBrownianMotion;
+//import umontreal.iro.lecuyer.rng.MRG32k3a;
+//import umontreal.iro.lecuyer.stochprocess.GeometricBrownianMotion;
 
 
 public class MultiPathGenerator
 {
+	
 //	private Vector<Float> NormallyDistributedRandomNumbers;
 	VolatilityCalculator volatilityCalculator;
+	CorrelationCalculator correlationCalculator;
 	
 	
 	public MultiPathGenerator(boolean isDynamic)
 	{		
+		float mu = 0.01f;
+		
 		if (!isDynamic)
-			volatilityCalculator = new ConstantVolatilityCalculator();
-		else 
-			volatilityCalculator = new VariableVolatilityCalculator();
+		{
+			volatilityCalculator = new StaticVolatilityCalculator();
+		}
+		
+		else
+			volatilityCalculator = new DynamicVolatilityCalculator();
 	}
 	
 	

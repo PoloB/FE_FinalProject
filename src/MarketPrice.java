@@ -3,14 +3,15 @@ import java.util.Vector;
 
 public class MarketPrice
 {
+	private float mean;
 	private float volatility;
-	private float initialPrice;
 	private float currentPrice;
 	private Date startingDay;
 	private String name;
 	private Vector<Integer> weeklyClosedDays = new Vector<Integer>();
 	private Vector<Date> holidays = new Vector<Date>();
 	private Vector<Float> historicalData;
+    private Vector<Float> historicalReturn;	
 	
 	public MarketPrice(String marketName, Date today, int historicalDataSize)
 	{
@@ -99,13 +100,16 @@ public class MarketPrice
 	public String getName() { return name; }
 	public float getVolatility() { return volatility; }
 	public Vector<Float> getHistoricalData() { return historicalData; }
-	public float getInitialPrice() { return initialPrice; }
-	public float getCurrentPrice() { return currentPrice; }
+	public float getHistoricalDataMean() { return mean; }
+	public Vector<Float> getHistoricalReturn() { return historicalReturn; }
 	
 	//Setters
 	public void setCurrentPrice(float cP) { currentPrice = cP; }
-	public void setVolatility(float v) { volatility = v; }	
-
+	public void setVolatility(float v) { volatility = v; }
+	public void setHistoricalReturn(Vector<Float> hR) { historicalReturn = hR; }
+	public void setHistoricalDataMean(float m) { mean = m; }
+	
+	//Miscenallous
 	boolean hasClosingPrice(Date today)
 	{
 		boolean result = true;
