@@ -19,19 +19,6 @@ public class FinancialProductA extends FinancialProduct
 	
 	public void calculateInterestRate(Vector<MarketPrice> mP)
 	{
-		int i = 0;
-		boolean areUpper = true, isFirst = false;
-		MarketPrice temp;
-		
-		while (i<mP.size() && areUpper == true)
-		{
-			temp = mP.get(i);
-			if (temp.getCurrentPrice() < 0.8f*temp.getInitialPrice())
-				areUpper = false ;
-			i++;
-		}
-		
-		interestRate = (areUpper == true || isFirst == true) ? 5.7f : 1.f;
 	}
 	
 }

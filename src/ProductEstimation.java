@@ -1,7 +1,7 @@
 
 public class ProductEstimation
 {
-	static MCSimulator MC;
+	private static MCSimulator MC;
 	
 	public static void main(String[] args)
 	{
@@ -10,6 +10,7 @@ public class ProductEstimation
 		
 		//Get the MC method
 		String mcs = parser.getLine(6).split(" ")[2];
+		MCSimulator MC = new StdMCSimulator();
 		
 		if(mcs == "MC")
 			MC = new StdMCSimulator();

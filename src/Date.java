@@ -48,7 +48,10 @@ public class Date
 	
 	public Date(Date d)
 	{
-		Date newDate = new Date(d.day, d.month, d.year);
+		Date newDate = new Date();
+		newDate.day = d.day;
+		newDate.month = d.month;
+		newDate.year = d.year;
 		day = newDate.day;
 		month = newDate.month;
 		year = newDate.year;
@@ -173,7 +176,7 @@ public class Date
 			day++;
 		}
 		
-		weekDay = (weekDay+1)%7;
+		weekDay = calculateWeekDay(day, month, year);
 		
 		return result;
 	}
@@ -227,14 +230,19 @@ public class Date
 			day--;
 		}
 		
-		weekDay = (weekDay+1)%7;
+		weekDay = calculateWeekDay(day, month, year);
 		
 		return result;
 	}
 	
-	void display()
+	public void display()
 	{
 		System.out.println(weekDay + " " + day + "/" + month + "/" + year);
+	}
+	
+	public String toString()
+	{
+		return day + "/" + month + "/" + year;
 	}
 	
 	private int day;
