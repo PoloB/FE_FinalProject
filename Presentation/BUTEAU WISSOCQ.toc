@@ -1,2 +1,0 @@
-\beamer@endinputifotherversion {3.32pt}
-\beamer@sectionintoc {1}{Introduction}{4}{0}{1}
