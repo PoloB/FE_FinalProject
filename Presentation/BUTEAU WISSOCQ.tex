@@ -1,0 +1,62 @@
+\documentclass[t]{beamer}
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{booktabs}
+
+\usetheme{Madrid}
+\usecolortheme{whale}
+\setbeamertemplate{itemize item}[triangle]
+\setbeamertemplate{itemize subitem}[circle] 
+\setbeamertemplate{navigation symbols}{\insertslidenavigationsymbol}
+
+\title{Analysis of a Financial Product}
+\author{BUTEAU Paul-\'Emile \& WISSOCQ Julien }
+\date{\today}
+%\institute{Imai Team B}
+
+
+\begin{document}
+
+%\newcommand{\vt}[1]{\overrightarrow{#1}}
+%\newcommand{\mt}[1]{\overline{\overline{#1}}}
+
+\begin{frame}[c]
+\frametitle{Financial Engineering}
+%\centering
+%\includegraphics[width=0.15\textwidth]{Keio}
+\titlepage
+\end{frame}
+
+\begin{frame}[c]
+\frametitle{References}
+\footnotesize{
+\begin{thebibliography}{9}
+
+%\setbeamertemplate{bibliography item}[article]
+%\bibitem[Fasshauer \& Khaliq \& Voss, 2003]{ref1} Fasshauer \& Khaliq \& Voss (2003)
+	%\newblock Using Meshfree Approximation for Multi-Asset American
+%Option Problems
+	%\newblock \emph{Working paper}
+
+\setbeamertemplate{bibliography item}[book]
+\bibitem[Hull, J.C., 2012]{ref} Hull, J.C. (2012)
+	\newblock Options, Futures, and Other Derivatives
+	\newblock $8^{th}$ global edition, chap. 22-23
+
+\end{thebibliography}
+}
+\end{frame}
+
+\begin{frame}[c]
+\frametitle{Contents}
+\tableofcontents
+\end{frame}
+
+\include{Introduction}
+\include{Theory} %\include{Programming}
+\include{Result}
+%\include{Conclusion}
+%\include{Appendix}
+
+\end{document}

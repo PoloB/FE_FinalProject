@@ -1,0 +1,31 @@
+\section{Appendix}
+
+\begin{frame}
+\frametitle{\insertsection}
+\textbf{Equation}
+\begin{itemize}
+	\item []
+	\item Penalty formulation of Black-Scholes':
+\end{itemize}
+\begin{equation*}
+	\frac{\partial P_\epsilon}{\partial t} +
+	\frac{1}{2}\sigma^2S^2 \frac{\partial^2 P_\epsilon}{{\partial S}^2} +
+	(r-D)\frac{\partial P_\epsilon}{\partial S} - r P_\epsilon +
+	\frac{\epsilon C}{P_{\epsilon}+\epsilon -q(S)} = 0
+\end{equation*}
+\begin{itemize}
+	%\item []
+	\item Gaussian basis function on collocation points and $\theta$-method:
+\end{itemize}
+\begin{equation*}
+	%\begin{cases}
+	\sum_{j=0}^{J} \Bigl(1-(1-\theta)a_{i,j}\Bigr) e^{-\bigl(\frac{x_i-x_j}{c}\bigr)^2} \lambda^n_{j} = 
+	\sum_{j=0}^{J} \Bigl(1+\theta a_{i,j})\Bigr) e^{-\bigl(\frac{x_i-x_j}{c}\bigr)^2} \lambda^{n+1}_{j} + \text{PY}(\lambda^{n+1}) %\\
+	%a_{i,j}= \bigl(\sigma^2{x_i}^2 \frac{2(x_i-x_j)^2-c^2}{c^4}+(r-D)x_i \frac{-2(x_i-x_j)}{c^2}-r\bigr)\Delta t
+	%\end{cases}
+\end{equation*}
+\begin{equation*}
+	\text{with} \quad
+	a_{i,j}= \biggl(\sigma^2{x_i}^2 \frac{2(x_i-x_j)^2-c^2}{c^4}-(r-D)x_i \frac{2(x_i-x_j)}{c^2}-r\biggr)\Delta t
+\end{equation*}
+\end{frame}

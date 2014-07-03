@@ -1,0 +1,90 @@
+\section{Theory}
+
+\subsection{Barrier option}
+\begin{frame}
+\frametitle{\insertsection / \small{\insertsubsection}}
+\begin{itemize}
+	\item Knock-in :
+	\begin{itemize}
+		%\item can be activated only once
+		\item observed every end of business days (so we always generate closing prices)
+		\item active if at least one of the indexes drop under 60\%
+		\item activation means the repayment will be the min of both index price percentages and 100\%
+		\item no more protection for the client if the knock-in activates
+	\end{itemize}
+	\item Knock-out :
+	\begin{itemize}
+		%\item can be activated only once
+		\item observed every valuation day (for repayments) 
+		\item active if only one index raise over 105\%
+		\item activation means the repayment is done before the maturity at 100\% rate (contract stopped)
+		\item protection for the seller because there is high probability they will repay 100\% at maturity, so they save some interest payments (they can raise the interest payments to lure clients)
+	\end{itemize}
+\end{itemize}
+
+\subsection{Repayment cases}
+\begin{frame}
+\frametitle{\insertsection / \insertsubsection}
+\begin{itemize}
+	\item If at a 
+	\item If none of the market price ends a day (closing price) at 60\% of its initial value (called base or standard) : the knock-in is not active and the reimbursement is total.
+\end{itemize}
+
+\subsection{Risks}
+\begin{frame}
+\frametitle{\insertsection / \insertsubsection}
+\begin{itemize}
+	\item The product is rated 
+\end{itemize}
+
+\centering
+%\includegraphics[width=0.65\textwidth]{BinomialTree}
+\end{frame}
+
+\subsection{Estimation of parameters}
+\begin{frame}
+\frametitle{\insertsection / \insertsubsection}
+\begin{itemize}
+	\item We estimate over 3 or 6 months the mean $\mu$, the volatility $\sigma$ of each market price, plus the correlation $\rho$ between them both.
+	\item The formulas are, with $u_{j,i} = \log_e\bigl(\frac{S_{j,i-1}}{S_{j,i}}\bigr)$
+\end{itemize}
+\begin{align*}
+	\hat{\mu}_j    &= \frac{1}{m} \sum_{i=1}^m u_{j,i} \\
+	\hat{\sigma}_j &= \sqrt{\frac{1}{m-1} \sum_{i=1}^m (u_{j,i}-\hat{\mu_j})^2} \\
+	\hat{\rho}   \;&= \frac{\dfrac{1}{m}\sum_{i=1}^m u_{1,i}u_{2,i}}{\hat{\sigma}_1 \hat{\sigma}_2}
+\end{align*}
+\end{frame}
+
+\subsection{Geometric Brownian Motion}
+\begin{frame}
+\frametitle{\insertsection / \insertsubsection}
+\begin{itemize}
+  \item Notations :
+	\begin{itemize}
+		\item S is the closing price of the index price% (either S\&P500 or Nikkei225)
+		\item $\Delta t$ is the constant time step%, expressed in years ($\approx \frac{1}{252}$) 
+		\item $\mu$ is the estimated mean of the historical data of the index price
+		\item $\sigma$ is the estimated volatility of the same historical data
+		\item $\xi$ is the independent standard normal distribution
+	\end{itemize}
+	\item GBM in its exact discretization form:
+\end{itemize}
+\begin{gather*}
+	S_j(t+\Delta t) = S_j(t) \;
+		e^{\bigl(\mu_j-\frac{{\sigma_j}^2}{2}\bigr)\Delta t+\sigma_j \sqrt{\Delta t}\mathcal{E}_j} 
+	\\
+	\\
+	\mbox{with }
+	\left \{
+	\begin{array}{ll}
+    \mathcal{E}_1 & = \xi_1 \\
+    \mathcal{E}_2 & = \rho\xi_1 + \sqrt{1-\rho^2}\xi_2
+  \end{array}
+	\right.
+\end{gather*}
+
+%\begin{itemize}
+	%\item []
+%\end{itemize}
+\end{frame}
+
