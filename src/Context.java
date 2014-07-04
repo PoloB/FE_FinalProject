@@ -73,12 +73,6 @@ public class Context
 		financialProduct=fP;
 	}
 	
-	public void displayMarketPrices()
-	{
-		for(int i=0; i < marketPrices.size(); ++i)
-			System.out.println(marketPrices.elementAt(i).getName());
-	}
-	
 	public int getNumberOfSample()
 	{
 		return numberSample;

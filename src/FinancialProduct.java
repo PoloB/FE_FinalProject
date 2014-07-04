@@ -9,7 +9,7 @@ public abstract class FinancialProduct
 	protected float knockInValue;
 	protected float knockOutValue;
 	protected float interestRate;
-//	protected float interestPaymentInterval;
+	protected int numberOfPaymentPerYear;
 	protected Vector<Date> interestPaymentDates;
 	protected Vector<Float> startingMarketPrices;
 	
@@ -35,9 +35,15 @@ public abstract class FinancialProduct
 		return endDate;
 	}
 	
-//	public void calculateInterestPaymentDates() {
-//		// TO DO
-//	}
+	public float getStartingMarketPrice(int i)
+	{
+		return startingMarketPrices.get(i);
+	}
+	
+	public int getNumberOfPaymentPerYear()
+	{
+		return numberOfPaymentPerYear;
+	}
 	
 	public abstract void calculateInterestRate(Vector<MarketPrice> mP);
 	

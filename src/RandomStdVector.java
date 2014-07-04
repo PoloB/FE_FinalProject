@@ -9,11 +9,12 @@ public class RandomStdVector extends RandomVector
 	public Vector<Vector<Float>> getNew(int nbrSample, int nbrMarketPrice)
 	{
 		Random rand = new Random();
-		Vector<Float> temp = new Vector<Float>();
+		
 		
 		Vector<Vector<Float> > result = new Vector<Vector<Float> >();
 		for(int i=0; i<nbrSample; ++i)
 		{
+			Vector<Float> temp = new Vector<Float>();
 			for(int j=0; j< nbrMarketPrice; ++j)
 				temp.add(rand.nextFloat());
 			

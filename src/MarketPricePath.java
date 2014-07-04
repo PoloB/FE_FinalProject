@@ -10,7 +10,7 @@ public class MarketPricePath
 	
 	public MarketPricePath(Vector<MarketPrice> mpg)
 	{
-		marketPriceGroup = new Vector<MarketPrice>(mpg);
+		marketPriceGroup = mpg;
 		
 		//Suppose there are only two market price in the vector
 		if(Context.get().volatilityIsDynamic())

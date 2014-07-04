@@ -245,6 +245,18 @@ public class Date
 		return day + "/" + month + "/" + year;
 	}
 	
+	public Date clone()
+	{
+		Date copy = new Date();
+		
+		copy.day = day;
+		copy.month = month;
+		copy.year = year;
+		copy.weekDay = weekDay;
+		
+		return copy;
+	}
+	
 	private int day;
 	private int month;
 	private int year;

@@ -1,8 +1,6 @@
 
 public class ProductEstimation
 {
-	private static MCSimulator MC;
-	
 	public static void main(String[] args)
 	{
 		Parser parser = new Parser();

@@ -5,20 +5,22 @@ public class MarketPrice
 {
 	private float volatility;
 	private float currentPrice;
-	private Date startingDay;
-	private String name;
-	private Vector<Integer> weeklyClosedDays;
-	private Vector<Date> holidays;
-	private Vector<Float> historicalData;
+	//private Date startingDay;
+	private Vector<Integer> weeklyClosedDays = new Vector<Integer>();
+	private Vector<Date> holidays = new Vector<Date>();
+	private Vector<Float> historicalData = new Vector<Float>();
     private int numberOfClosingDayPerYear;
 	
+    public MarketPrice()
+    {
+    	
+    }
     
 	public MarketPrice(String marketName, Date today, int historicalDataSize)
 	{
 		// Create a parser to get the information about the market Price
 		Parser p = new Parser();
 		p.setInputFileName(marketName + ".txt");
-		name = marketName;
 		
 		
 		//Weekly closed days
@@ -26,8 +28,6 @@ public class MarketPrice
 		String s = ss1[2];
 		ss1 = s.split("[,;]");
 		int nbrWCdays = ss1.length;
-		
-		weeklyClosedDays = new Vector<Integer>();
 		
 		for(int i=0; i<nbrWCdays; ++i)
 			weeklyClosedDays.add(Integer.parseInt(ss1[i]));
@@ -38,13 +38,11 @@ public class MarketPrice
 		ss1 = s.split("[,;]");
 		nbrWCdays = ss1.length;
 		
-		holidays = new Vector<Date>();
 		for(int i=0; i<nbrWCdays; ++i)
 			holidays.add(new Date(ss1[i]));
 		
 		
 		//Set historical data
-		historicalData = new Vector<Float>();
 		p.setInputFileName(marketName + ".csv");
 		Date evaluatedDay = new Date(today);
 		Date endEvaluation = new Date(today);
@@ -161,8 +159,7 @@ public class MarketPrice
 	{
 		volatility = mp.volatility;
 		currentPrice = mp.currentPrice;
-		startingDay = mp.startingDay;
-		name = mp.name;
+		//startingDay = mp.startingDay;
 		weeklyClosedDays = new Vector<Integer>(mp.weeklyClosedDays);
 		holidays = new Vector<Date>(mp.holidays);
 		historicalData = new Vector<Float>(mp.historicalData); 
@@ -171,14 +168,16 @@ public class MarketPrice
 
 	//Getters
 	public float getCurrentPrice() { return currentPrice; }
-	public String getName() { return name; }
 	public float getVolatility() { return volatility; }
 	public Vector<Float> getHistoricalData() { return historicalData; }
 	public int getNumberOfClosingDayPerYear() { return numberOfClosingDayPerYear; }
+	public Vector<Integer> getWeeklyClosedDays() { return weeklyClosedDays; }
+	public Vector<Date> getHolydays() { return holidays; }
 	
 	//Setters
 	public void setCurrentPrice(float cP) { currentPrice = cP; }
 	public void setVolatility(float v) { volatility = v; }
+	public void setNumberOfClosingDaysPerYear(int nocdpy) {numberOfClosingDayPerYear = nocdpy; }
 	
 	//Miscenallous
 	public boolean hasClosingPrice(Date today)
@@ -198,6 +197,32 @@ public class MarketPrice
 		}
 		
 		return result;
+	}
+	
+	public MarketPrice clone()
+	{
+		MarketPrice copy = new MarketPrice();
+		
+		//Copy the historical data
+		Vector<Float> hdCopy = copy.getHistoricalData();
+		for(int i=0; i< historicalData.size(); ++i)
+			hdCopy.add(historicalData.get(i).floatValue());
+		
+		//Copy the weekly closed days
+		Vector<Integer> wcdCopy = copy.getWeeklyClosedDays();
+		for(int i=0; i< weeklyClosedDays.size(); ++i)
+			wcdCopy.add(weeklyClosedDays.get(i).intValue());
+		
+		//Copy the holydays
+		Vector<Date> hCopy = copy.getHolydays();
+		for(int i=0; i< holidays.size(); ++i)
+			hCopy.add(holidays.get(i).clone());
+		
+		copy.setCurrentPrice(currentPrice);
+		copy.setVolatility(volatility);
+		copy.setNumberOfClosingDaysPerYear(numberOfClosingDayPerYear);
+		
+		return copy;
 	}
 }
 

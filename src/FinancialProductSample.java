@@ -7,44 +7,81 @@ public class FinancialProductSample
 	private boolean knockOut;
 	private float gain;
 	private float interestRate;
+	private int numberOfPaymentRealized;
 	
 	private FinancialProduct financialProductDefinition;
 	
-	FinancialProductSample(FinancialProduct fp)
+	public FinancialProductSample(FinancialProduct fp)
 	{
 		financialProductDefinition = fp;
 		interestRate = fp.getInterestRate();
 		knockIn = false;
 		knockOut = false;
-		gain = 100.f;
+		gain = -1.f;
+		numberOfPaymentRealized = 0;
 	}
 	
-	void evaluateReturn(Vector<MarketPrice> marketPrices)
+	public void evaluateReturn(Vector<MarketPrice> marketPrices)
 	{
-		//Check if we need to modify the knockIn and knockOut
-		boolean needToUpdateKnock = true;
-		
-		for(int k=0; k<marketPrices.size(); ++k)
-		{
-			if(marketPrices.get(k).getCurrentPrice() < financialProductDefinition.getKnockInValue() * 0.6)
-				knockIn = true;
-		}
-		
-		//Check if we have a return today
-		boolean needToEvaluateReturn = false;
-		for(int i=0; i<financialProductDefinition.getInterestPaymentDates().size(); ++i)
-		{
-			if(Context.get().getCurrentDay().isEqualTo(financialProductDefinition.getInterestPaymentDates().get(i)))
+		if(!knockOut)
+		{	
+			for(int k=0; k<marketPrices.size(); ++k)
 			{
-				//We got our pay today!!!
-				needToEvaluateReturn = true;
+				if(marketPrices.get(k).getCurrentPrice() < financialProductDefinition.getKnockInValue() * financialProductDefinition.getStartingMarketPrice(k))
+					knockIn = true;
+			}
+			
+			if(marketPrices.get(0).getCurrentPrice() > financialProductDefinition.getKnockOutValue() * financialProductDefinition.getStartingMarketPrice(0)
+					&& marketPrices.get(1).getCurrentPrice() > financialProductDefinition.getKnockOutValue() * financialProductDefinition.getStartingMarketPrice(1))
+			{
+				knockOut = true;
+				gain += 1 + interestRate / (float)financialProductDefinition.getNumberOfPaymentPerYear(); //Add discount
+			}
+			
+			//Check if we have a return today
+			boolean needToEvaluateReturn = false;
+			for(int i=0; i<financialProductDefinition.getInterestPaymentDates().size(); ++i)
+			{
+				if(Context.get().getCurrentDay().isEqualTo(financialProductDefinition.getInterestPaymentDates().get(i)))
+				{
+					//We got our pay today!!!
+					needToEvaluateReturn = true;
+				}
+			}
+			
+			if(needToEvaluateReturn)
+			{
+				//Let's calculate the return of our product
+				gain += interestRate / (float)financialProductDefinition.getNumberOfPaymentPerYear(); //Add discount
+				numberOfPaymentRealized++;
 			}
 		}
+	}
 		
-		if(needToEvaluateReturn)
+	public boolean isOut()
+	{
+		return knockOut;
+	}
+	
+	public void endingReturn(Vector<MarketPrice> marketPrices)
+	{
+		if(!knockOut)
 		{
-			//Let's calculate the return of our product
-			gain = gain * (1.f + interestRate);
+			if(!knockIn)
+				gain += 1.f;
+			else
+			{
+				float m1 = Math.min(marketPrices.get(0).getCurrentPrice() / financialProductDefinition.getStartingMarketPrice(0),
+									marketPrices.get(1).getCurrentPrice() / financialProductDefinition.getStartingMarketPrice(1));
+				float m2 = Math.min(m1, 1.f);
+				
+				gain += m2;
+			}
 		}
+	}
+	
+	public float getGain()
+	{
+		return gain;
 	}
 }

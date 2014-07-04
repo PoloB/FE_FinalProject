@@ -24,9 +24,11 @@ public class MultiPathGenerator
 	{
 		Date today = Context.get().getCurrentDay();
 		int numberOfSubStep = randomVector.size() / marketSamples.size();
+		int numberOfSample = marketSamples.size();
 		
-		for(int i=0; i < marketSamples.size(); ++i)
+		for(int i=0; i < numberOfSample; ++i)
 		{
+			//System.out.println(randomVector.get(i).get(0));
 			//Get the current market path and market price vector
 			MarketPricePath currentEvaluatedMarketPath = marketSamples.get(i); 
 			Vector<MarketPrice> currentMarketPrices = currentEvaluatedMarketPath.getMarketPrices();
@@ -121,11 +123,11 @@ public class MultiPathGenerator
 					normalSamples.clear(); 
 					
 					for(int j=0; j < currentMarketPrices.size(); ++j)
-					{		
-						normalSamples.add((float) NormalDist.inverseF01(randomVector.get(i*numberOfSubStep + k).get(j)));
+					{	
+						float rand = randomVector.get(i*numberOfSubStep + k).get(j);
+						normalSamples.add((float) NormalDist.inverseF01(rand));
 						
 						MarketPrice currentMarketPrice = currentMarketPrices.get(j);
-						Vector<Float> currentHD = currentMarketPrices.get(j).getHistoricalData();
 						
 						//Generate new closing price
 						float gbm = 0.f;
@@ -145,8 +147,6 @@ public class MultiPathGenerator
 						currentPrice = gbm;
 						
 						closingPrices.setElementAt(gbm, j);
-						
-						
 					}
 				}
 				

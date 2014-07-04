@@ -30,15 +30,24 @@ public class StdMCSimulator extends MCSimulator
 			financialProducts.add(new FinancialProductSample(financialProductRef));
 		
 		//Time step
-		int subStepNumber = 480;	//Set to have 1 evaluation of the market prices every minute
+		int subStepNumber = 1;	//Set to have 1 evaluation of the market prices every minute
 		
-		//Create the path generator for the simulation 
+		//Create the path generator for the simulation
 		MultiPathGenerator mpg = new MultiPathGenerator(context.volatilityIsDynamic());
 		
 		//Initialize the vector of MarketPricePath
 		Vector<MarketPricePath> marketPricePaths = new Vector<MarketPricePath>();
 		for(int i=0; i<nbrSample; ++i)
-			marketPricePaths.add(new MarketPricePath(context.getMarketPriceVector()));
+		{
+			//Make a copy of the market price vector which is defined in the context
+			Vector<MarketPrice> copy = new Vector<MarketPrice>();
+			Vector<MarketPrice> toCopy = context.getMarketPriceVector();
+			
+			for(int k=0; k<toCopy.size();++k)
+				copy.add(toCopy.get(k).clone());
+			
+			marketPricePaths.add(new MarketPricePath(copy));
+		}
 		
 		//Starting day of the simulation
 		Date today = context.getCurrentDay();
@@ -47,7 +56,7 @@ public class StdMCSimulator extends MCSimulator
 		try {
 			PrintWriter writer = new PrintWriter("test.csv", "UTF-8");
 			
-			writer.println("Date; S&P; Nikei");
+			writer.println("Date; S&P1; Nikei1; S&P2; Nikei2");
 			
 			///////////
 			//Main Loop
@@ -64,8 +73,14 @@ public class StdMCSimulator extends MCSimulator
 				}
 				
 				//Debug
-				writer.println(today.toString() + "; " + marketPricePaths.get(0).getMarketPrices().get(0).getCurrentPrice() + "; " + marketPricePaths.get(0).getMarketPrices().get(1).getCurrentPrice()); 
+				//writer.println(today.toString() + "; " + marketPricePaths.get(0).getMarketPrices().get(0).getCurrentPrice() + "; " + marketPricePaths.get(1).getMarketPrices().get(0).getCurrentPrice());
 				today.next();
+			}
+			
+			for(int k=0; k<nbrSample; ++k)
+			{
+				financialProducts.get(k).endingReturn(marketPricePaths.get(k).getMarketPrices());
+				writer.println(financialProducts.get(k).getGain());
 			}
 			
 			writer.close();

@@ -9,8 +9,9 @@ public class FinancialProductB extends FinancialProduct {
 		endDate = new Date(20,4,2017);
 		knockInValue = 0.6f;
 		knockOutValue = 1.05f;
-		interestRate = 0.03f;
-
+		interestRate = 0.015f;
+		numberOfPaymentPerYear = 2;
+		
 		interestPaymentDates = new Vector<Date>();
 		interestPaymentDates.addElement(new Date(20,4,2014));
 		interestPaymentDates.addElement(new Date(20,10,2014));
