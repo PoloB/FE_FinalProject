@@ -56,7 +56,7 @@ public class Context
 		
 		
 		//Add the financial product
-		financialProduct = new FinancialProductB();
+		financialProduct = new FinancialProductB(this);
 		
 	}
 	

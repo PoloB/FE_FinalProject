@@ -11,8 +11,7 @@ public abstract class FinancialProduct
 	protected float interestRate;
 //	protected float interestPaymentInterval;
 	protected Vector<Date> interestPaymentDates;
-	
-//	boolean 
+	protected Vector<Float> startingMarketPrices;
 	
 	
 	public float getKnockInValue() {

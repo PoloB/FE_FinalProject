@@ -22,26 +22,27 @@ public class StdMCSimulator extends MCSimulator
 		//Define Local variables for the simulation
 		int nbrSample = context.getNumberOfSample();
 		int nbrMarketPrice = context.getNumberOfMarketPrice();
-		FinancialProduct financialProduct = context.getFinancialProduct();
+		FinancialProduct financialProductRef = context.getFinancialProduct();
 		
-		//TODO
-		/////////////////
-		int subStepNumber = 10000;
-		/////////////////
+		//Create the vector of financial product samples
+		Vector<FinancialProductSample> financialProducts = new Vector<FinancialProductSample>();
+		for(int k=0; k<nbrSample; ++k)
+			financialProducts.add(new FinancialProductSample(financialProductRef));
+		
+		//Time step
+		int subStepNumber = 480;	//Set to have 1 evaluation of the market prices every minute
 		
 		//Create the path generator for the simulation 
 		MultiPathGenerator mpg = new MultiPathGenerator(context.volatilityIsDynamic());
 		
 		//Initialize the vector of MarketPricePath
 		Vector<MarketPricePath> marketPricePaths = new Vector<MarketPricePath>();
-		
 		for(int i=0; i<nbrSample; ++i)
-		{
 			marketPricePaths.add(new MarketPricePath(context.getMarketPriceVector()));
-		}
 		
 		//Starting day of the simulation
 		Date today = context.getCurrentDay();
+		
 		
 		try {
 			PrintWriter writer = new PrintWriter("test.csv", "UTF-8");
@@ -51,10 +52,16 @@ public class StdMCSimulator extends MCSimulator
 			///////////
 			//Main Loop
 			///////////
-			while(financialProduct.getEndDate().isGreaterThan(today))
+			while(financialProductRef.getEndDate().isGreaterThan(today))
 			{
 				//Generate the today closingPrice for each market
 				mpg.nextPathFor(marketPricePaths, randomVector.getNew(nbrSample*subStepNumber, nbrMarketPrice));
+				
+				//Evaluate return of the financial products
+				for(int k=0; k<nbrSample; ++k)
+				{
+					financialProducts.get(k).evaluateReturn(marketPricePaths.get(k).getMarketPrices());
+				}
 				
 				//Debug
 				writer.println(today.toString() + "; " + marketPricePaths.get(0).getMarketPrices().get(0).getCurrentPrice() + "; " + marketPricePaths.get(0).getMarketPrices().get(1).getCurrentPrice()); 
