@@ -1,7 +1,7 @@
 MarketPrices = Data/SandP500,Data/Nikkei225
 DynamicVolatility = 0
-HistoricalDataSize = 3
-NumberSample = 10000
+HistoricalDataSize = 3 (in month)
+NumberSample = 1024
 ResultStep = 32
 SimulationStartingDay = 18/04/2014
-MonteCarloMethod = MC (RQMC, QMC, MC)
+QMC = 0

@@ -78,6 +78,11 @@ public class Context
 		return numberSample;
 	}
 	
+	public int getResultStep()
+	{
+		return resultStep;
+	}
+	
 	public int getNumberOfMarketPrice()
 	{
 		return marketPrices.size();

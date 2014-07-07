@@ -7,17 +7,17 @@ public class Result
 		profits = new Vector<Float>();
 	}
 	
-	void addProfit(float p)
+	public void addProfit(float p)
 	{
 		profits.addElement(p);
 	}
 	
-	Vector<Float> getProfits()
+	public Vector<Float> getProfits()
 	{
 		return profits;
 	}
 	
-	float mean()
+	public float mean()
 	{
 		float m = 0.f;
 		if(profits.size()>0)
@@ -35,7 +35,7 @@ public class Result
 		return m; 
 	}
 	
-	float variance()
+	public float variance()
 	{
 		float v = 0.f;
 		float m = mean();
@@ -45,7 +45,7 @@ public class Result
 			{
 				v += Math.pow(profits.elementAt(i)-m,2);
 			}
-			v = (float)Math.sqrt(v/profits.size()-1);
+			v = (float)Math.sqrt(v/(profits.size()-1));
 		}
 		else
 		{

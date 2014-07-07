@@ -31,13 +31,6 @@ public class FinancialProductSample
 					knockIn = true;
 			}
 			
-			if(marketPrices.get(0).getCurrentPrice() > financialProductDefinition.getKnockOutValue() * financialProductDefinition.getStartingMarketPrice(0)
-					&& marketPrices.get(1).getCurrentPrice() > financialProductDefinition.getKnockOutValue() * financialProductDefinition.getStartingMarketPrice(1))
-			{
-				knockOut = true;
-				gain += 1 + interestRate / (float)financialProductDefinition.getNumberOfPaymentPerYear(); //Add discount
-			}
-			
 			//Check if we have a return today
 			boolean needToEvaluateReturn = false;
 			for(int i=0; i<financialProductDefinition.getInterestPaymentDates().size(); ++i)
@@ -51,6 +44,13 @@ public class FinancialProductSample
 			
 			if(needToEvaluateReturn)
 			{
+				if(marketPrices.get(0).getCurrentPrice() > financialProductDefinition.getKnockOutValue() * financialProductDefinition.getStartingMarketPrice(0)
+						&& marketPrices.get(1).getCurrentPrice() > financialProductDefinition.getKnockOutValue() * financialProductDefinition.getStartingMarketPrice(1))
+				{
+					knockOut = true;
+					gain += 1 + interestRate / (float)financialProductDefinition.getNumberOfPaymentPerYear(); //Add discount
+				}
+				
 				//Let's calculate the return of our product
 				gain += interestRate / (float)financialProductDefinition.getNumberOfPaymentPerYear(); //Add discount
 				numberOfPaymentRealized++;
@@ -69,6 +69,7 @@ public class FinancialProductSample
 		{
 			if(!knockIn)
 				gain += 1.f;
+			
 			else
 			{
 				float m1 = Math.min(marketPrices.get(0).getCurrentPrice() / financialProductDefinition.getStartingMarketPrice(0),

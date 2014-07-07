@@ -8,19 +8,15 @@ public class ProductEstimation
 		
 		//Get the MC method
 		String mcs = parser.getLine(6).split(" ")[2];
-		MCSimulator MC = new StdMCSimulator();
+		RandomVector rdmVec;
 		
-		if(mcs == "MC")
-			MC = new StdMCSimulator();
-		
-		if(mcs == "QMC"){}
-			//TODO
-			
-		if(mcs == "RQMC"){}
-			//TODO
+		if(Integer.parseInt(mcs) == 1)
+			rdmVec = new RandomLDVector();
+		else
+			rdmVec = new RandomStdVector();
 		
 		Context.get();
-		
+		MCSimulator MC = new MCSimulator(rdmVec);
 		MC.execute();
 		
 	}
