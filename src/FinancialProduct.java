@@ -45,6 +45,4 @@ public abstract class FinancialProduct
 		return numberOfPaymentPerYear;
 	}
 	
-	public abstract void calculateInterestRate(Vector<MarketPrice> mP);
-	
 }
