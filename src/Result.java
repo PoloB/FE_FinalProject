@@ -22,15 +22,11 @@ public class Result
 		float m = 0.f;
 		if(profits.size()>0)
 		{
-			for (int i=0; i<profits.size(); i++)
+			for (int i=0; i<profits.size(); ++i)
 			{
-				m += profits.elementAt(i);
+				m += profits.get(i);
 			}
-			m /= profits.size();
-		}
-		else
-		{
-			
+			m /= (float)profits.size();
 		}
 		return m; 
 	}
@@ -41,15 +37,16 @@ public class Result
 		float m = mean();
 		if(profits.size()>1)
 		{
-			for (int i=0; i<profits.size(); i++)
+			for (int i=0; i<profits.size(); ++i)
 			{
-				v += Math.pow(profits.elementAt(i)-m,2);
+				v += Math.pow(profits.get(i)-m,2);
 			}
-			v = (float)Math.sqrt(v/(profits.size()-1));
-		}
-		else
-		{
 			
+			v /= (float)(profits.size()-1);
+		}
+		if(Float.isNaN(v))
+		{
+			System.out.println("Oups");
 		}
 		return v;
 	}

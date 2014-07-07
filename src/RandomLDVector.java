@@ -8,7 +8,7 @@ public class RandomLDVector extends RandomVector
 {
 	RandomLDVector(){}
 	
-	public Vector<Vector<Float>> getNew(int nbrSample, int nbrMarketPrice)
+	public Vector<Vector<Float> > getNew(int nbrSample, int nbrMarketPrice)
 	{
 		HaltonSequence haltonSequence = new HaltonSequence(10);
 		haltonSequence.addFaureLemieuxPermutations();
@@ -18,7 +18,9 @@ public class RandomLDVector extends RandomVector
 		{
 			Vector<Float> temp = new Vector<Float>();
 			for(int j=0; j< nbrMarketPrice; ++j)
-				temp.add((float) haltonSequence.getCoordinate(i*nbrMarketPrice+j,0));
+			{
+				temp.add((float) haltonSequence.getCoordinate(i*nbrMarketPrice+j+1,5));
+			}
 			
 			result.add(temp);
 		}

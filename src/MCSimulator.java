@@ -91,13 +91,14 @@ public class MCSimulator
 				//Push the gain into the result buffer
 				result.addProfit(financialProducts.get(k).getGain());
 				
-				if(k % context.getResultStep() == 0 && k != 0)
+				/*if((k+1) % context.getResultStep() == 0 && k != 0)
 				{
 					//Display the mean and variance
+					
 					writer.println(k + "; " + result.mean() + "; " + result.variance());
-				}
+				}*/
 				
-				//writer.println(financialProducts.get(k).getGain());
+				writer.println(financialProducts.get(k).getGain());
 			}
 			
 			writer.close();
