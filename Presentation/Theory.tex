@@ -9,16 +9,17 @@
 	\begin{itemize}
 		%\item can be activated only once
 		\item observed every end of business days (so we always generate closing prices)
-		\item active if at least one of the indexes drop under 60\%
+		\item active if at least one of the indexes drops under 60\%
 		\item activation means the repayment will be the min of both index price percentages and 100\%
 		\item no more protection for the client if the knock-in activates
 	\end{itemize}
+	\item []
 	\item Knock-out :
 	\begin{itemize}
 		%\item can be activated only once
-		\item observed every valuation day (for repayments) 
-		\item active if only one index raise over 105\%
-		\item activation means the repayment is done before the maturity at 100\% rate (contract stopped)
+		\item observed every valuation day of interest payments
+		\item active if both indexes raise over 105\%
+		\item activation means the repayment is done before the maturity at 100\%-rate (contract stopped)
 		\item protection for the seller because there is high probability they will repay 100\% at maturity, so they save some interest payments (they can raise the interest payments to lure clients)
 	\end{itemize}
 \end{itemize}
@@ -27,6 +28,10 @@
 \subsection{Repayment cases}
 \begin{frame}
 \myframetitle{}
+\begin{itemize}
+		\item []
+		\item []
+\end{itemize}
 \begin{table}[c]
 	\centering
 	\begin{tabular}{|c|c|c|c|} 
@@ -46,12 +51,14 @@
 \end{frame}
 
 \subsection{Risks}
-\begin{frame}
+\begin{frame}[c]
 \myframetitle{}
 \begin{itemize}
 	\item The product has a credit rating of A (S\&P), so it has an average cumulative default rate of 0.34 over 3 years
+	\item []
 	\item The knock-out can stop prior to maturity (need to reinvest)
-	\item Worst case scenario: at least one of the two index is very low in 3 years
+	\item []
+	\item Worst case scenario: at least one of both indexes is very low in 3 years
 \end{itemize}
 \end{frame}
 
@@ -59,14 +66,16 @@
 \begin{frame}
 \myframetitle{}
 \begin{itemize}
-  \item Notations :
+  \item Notations:
 	\begin{itemize}
-		\item S is the closing price of the index price% (either S\&P500 or Nikkei225)
+		\item S is the closing price of an index% (either S\&P500 or Nikkei225)
 		\item $\Delta t$ is the constant time step%, expressed in years ($\approx \frac{1}{252}$) 
-		\item $\mu$ is the estimated mean of the historical data of the index price
+		\item $\mu$ is the estimated mean of the historical data of an index price
 		\item $\sigma$ is the estimated volatility of the same historical data
 		\item $\xi$ is the independent standard normal distribution
+		\item $\rho$ is the correlation between both indexes
 	\end{itemize}
+	\item []
 	\item GBM in its exact discretization form:
 \end{itemize}
 \begin{gather*}
@@ -88,8 +97,8 @@
 \begin{frame}
 \myframetitle{}
 \begin{itemize}
-	\item We estimate over 3 or 6 months the mean $\mu$, the volatility $\sigma$ of each market price, plus the correlation $\rho$ between them both.
-	\item The formulas are, with $u_{j,i} = \log_e\bigl(\frac{S_{j,i-1}}{S_{j,i}}\bigr)$
+	\item We estimate over 6 months the mean $\mu$, the volatility $\sigma$ of each market price, plus the correlation $\rho$ between them both.
+	\item The formulas are, with the log-returns over one day $u_{j,i} = \log_e\bigl(\frac{S_{j,i-1}}{S_{j,i}}\bigr)$
 \end{itemize}
 \begin{align*}
 	\hat{\mu}_j    &= \frac{1}{m} \sum_{i=1}^m u_{j,i} \\
