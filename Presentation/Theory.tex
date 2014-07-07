@@ -1,5 +1,6 @@
 \section{Theory}
 
+
 \subsection{Barrier option}
 \begin{frame}
 \myframetitle{}
@@ -40,7 +41,6 @@
     \hline
 	\end{tabular}
 	\caption{The different rates of repayment cases, depending on realization of knock-in and knock-out}
-	%\label{}
 \end{table}
 
 \end{frame}
@@ -49,25 +49,10 @@
 \begin{frame}
 \myframetitle{}
 \begin{itemize}
-	\item The product is rated 
+	\item The product has a credit rating of A (S\&P), so it has an average cumulative default rate of 0.34 over 3 years
+	\item The knock-out can stop prior to maturity (need to reinvest)
+	\item Worst case scenario: at least one of the two index is very low in 3 years
 \end{itemize}
-
-\centering
-%\includegraphics[width=0.65\textwidth]{BinomialTree}
-\end{frame}
-
-\subsection{Estimation of parameters}
-\begin{frame}
-\myframetitle{}
-\begin{itemize}
-	\item We estimate over 3 or 6 months the mean $\mu$, the volatility $\sigma$ of each market price, plus the correlation $\rho$ between them both.
-	\item The formulas are, with $u_{j,i} = \log_e\bigl(\frac{S_{j,i-1}}{S_{j,i}}\bigr)$
-\end{itemize}
-\begin{align*}
-	\hat{\mu}_j    &= \frac{1}{m} \sum_{i=1}^m u_{j,i} \\
-	\hat{\sigma}_j &= \sqrt{\frac{1}{m-1} \sum_{i=1}^m (u_{j,i}-\hat{\mu_j})^2} \\
-	\hat{\rho}   \;&= \frac{\dfrac{1}{m}\sum_{i=1}^m u_{1,i}u_{2,i}}{\hat{\sigma}_1 \hat{\sigma}_2}
-\end{align*}
 \end{frame}
 
 \subsection{Geometric Brownian Motion}
@@ -97,9 +82,18 @@
   \end{array}
 	\right.
 \end{gather*}
-
-%\begin{itemize}
-	%\item []
-%\end{itemize}
 \end{frame}
 
+\subsection{Estimation of parameters}
+\begin{frame}
+\myframetitle{}
+\begin{itemize}
+	\item We estimate over 3 or 6 months the mean $\mu$, the volatility $\sigma$ of each market price, plus the correlation $\rho$ between them both.
+	\item The formulas are, with $u_{j,i} = \log_e\bigl(\frac{S_{j,i-1}}{S_{j,i}}\bigr)$
+\end{itemize}
+\begin{align*}
+	\hat{\mu}_j    &= \frac{1}{m} \sum_{i=1}^m u_{j,i} \\
+	\hat{\sigma}_j &= \sqrt{\frac{1}{m-1} \sum_{i=1}^m (u_{j,i}-\hat{\mu_j})^2} \\
+	\hat{\rho}   \;&= \frac{\dfrac{1}{m}\sum_{i=1}^m u_{1,i}u_{2,i}}{\hat{\sigma}_1 \hat{\sigma}_2}
+\end{align*}
+\end{frame}

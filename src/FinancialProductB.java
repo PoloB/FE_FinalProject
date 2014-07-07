@@ -34,6 +34,4 @@ public class FinancialProductB extends FinancialProduct {
 		}
 	}
 	
-	public void calculateInterestRate(Vector<MarketPrice> mP) {}
-	
 }

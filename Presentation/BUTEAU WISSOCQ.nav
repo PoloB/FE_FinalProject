@@ -29,14 +29,14 @@
 \headcommand {\sectionentry {3}{Result}{9}{Result}{0}}
 \headcommand {\beamer@sectionpages {4}{8}}
 \headcommand {\beamer@subsectionpages {8}{8}}
-\headcommand {\beamer@subsectionentry {0}{3}{1}{9}{Numerical efficiency}}\headcommand {\beamer@subsectionpages {9}{8}}
-\headcommand {\slideentry {3}{1}{1}{9/9}{Numerical efficiency}{0}}
+\headcommand {\beamer@subsectionentry {0}{3}{1}{9}{Probability of loss}}\headcommand {\beamer@subsectionpages {9}{8}}
+\headcommand {\slideentry {3}{1}{1}{9/9}{Probability of loss}{0}}
 \headcommand {\beamer@framepages {9}{9}}
-\headcommand {\beamer@subsectionentry {0}{3}{2}{10}{Probability of loss}}\headcommand {\beamer@subsectionpages {9}{9}}
-\headcommand {\slideentry {3}{2}{1}{10/10}{Probability of loss}{0}}
+\headcommand {\beamer@subsectionentry {0}{3}{2}{10}{Histogram of the return}}\headcommand {\beamer@subsectionpages {9}{9}}
+\headcommand {\slideentry {3}{2}{1}{10/10}{Histogram of the return}{0}}
 \headcommand {\beamer@framepages {10}{10}}
-\headcommand {\beamer@subsectionentry {0}{3}{3}{11}{Histogram of the return}}\headcommand {\beamer@subsectionpages {10}{10}}
-\headcommand {\slideentry {3}{3}{1}{11/11}{Histogram of the return}{0}}
+\headcommand {\beamer@subsectionentry {0}{3}{3}{11}{Numerical efficiency}}\headcommand {\beamer@subsectionpages {10}{10}}
+\headcommand {\slideentry {3}{3}{1}{11/11}{Numerical efficiency}{0}}
 \headcommand {\beamer@framepages {11}{11}}
 \headcommand {\beamer@subsectionentry {0}{3}{4}{12}{Sensitivity analysis}}\headcommand {\beamer@subsectionpages {11}{11}}
 \headcommand {\slideentry {3}{4}{1}{12/12}{Sensitivity analysis}{0}}
