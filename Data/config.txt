@@ -1,7 +1,7 @@
 MarketPrices = Data/SandP500,Data/Nikkei225
 DynamicVolatility = 0
 HistoricalDataSize = 3 (in month)
-NumberSample = 8192
+NumberSample = 128
 ResultStep = 32
 SimulationStartingDay = 18/04/2014
 QMC = 0

@@ -76,7 +76,7 @@ public class MCSimulator
 				}
 				
 				//Debug
-				//writer.println(today.toString() + "; " + marketPricePaths.get(0).getMarketPrices().get(0).getCurrentPrice() + "; " + marketPricePaths.get(0).getMarketPrices().get(1).getCurrentPrice() + "; " + financialProducts.get(0).getGain());
+				writer.println(today.toString() + "; " + marketPricePaths.get(0).getMarketPrices().get(0).getCurrentPrice() + "; " + marketPricePaths.get(0).getMarketPrices().get(1).getCurrentPrice() + "; " + financialProducts.get(0).getGain());
 				today.next();
 			}
 			
@@ -98,7 +98,7 @@ public class MCSimulator
 					writer.println(k + "; " + result.mean() + "; " + result.variance());
 				}*/
 				
-				writer.println(financialProducts.get(k).getGain());
+				//writer.println(financialProducts.get(k).getGain());
 			}
 			
 			writer.close();
