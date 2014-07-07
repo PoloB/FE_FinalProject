@@ -18,34 +18,13 @@
 
 \begin{document}
 
-%\newcommand{\vt}[1]{\overrightarrow{#1}}
-%\newcommand{\mt}[1]{\overline{\overline{#1}}}
+\newcommand{\myframetitle}[0]{\frametitle{\insertsection / \normalsize{\insertsubsection}}}
 
 \begin{frame}[c]
 \frametitle{Financial Engineering}
 %\centering
 %\includegraphics[width=0.15\textwidth]{Keio}
 \titlepage
-\end{frame}
-
-\begin{frame}[c]
-\frametitle{References}
-\footnotesize{
-\begin{thebibliography}{9}
-
-%\setbeamertemplate{bibliography item}[article]
-%\bibitem[Fasshauer \& Khaliq \& Voss, 2003]{ref1} Fasshauer \& Khaliq \& Voss (2003)
-	%\newblock Using Meshfree Approximation for Multi-Asset American
-%Option Problems
-	%\newblock \emph{Working paper}
-
-\setbeamertemplate{bibliography item}[book]
-\bibitem[Hull, J.C., 2012]{ref} Hull, J.C. (2012)
-	\newblock Options, Futures, and Other Derivatives
-	\newblock $8^{th}$ global edition, chap. 22-23
-
-\end{thebibliography}
-}
 \end{frame}
 
 \begin{frame}[c]
@@ -58,5 +37,22 @@
 \include{Result}
 %\include{Conclusion}
 %\include{Appendix}
+
+\begin{frame}[c]
+\frametitle{References}
+\footnotesize{
+\begin{thebibliography}{9}
+%\setbeamertemplate{bibliography item}[article]
+%\bibitem[Fasshauer \& Khaliq \& Voss, 2003]{ref1} Fasshauer \& Khaliq \& Voss (2003)
+	%\newblock Using Meshfree Approximation for Multi-Asset American
+%Option Problems
+	%\newblock \emph{Working paper}
+\setbeamertemplate{bibliography item}[book]
+\bibitem[Hull, J.C., 2012]{ref} Hull, J.C. (2012)
+	\newblock Options, Futures, and Other Derivatives
+	\newblock $8^{th}$ global edition, chap. 22-23
+\end{thebibliography}
+}
+\end{frame}
 
 \end{document}

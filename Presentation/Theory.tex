@@ -2,7 +2,7 @@
 
 \subsection{Barrier option}
 \begin{frame}
-\frametitle{\insertsection / \small{\insertsubsection}}
+\myframetitle{}
 \begin{itemize}
 	\item Knock-in :
 	\begin{itemize}
@@ -21,18 +21,33 @@
 		\item protection for the seller because there is high probability they will repay 100\% at maturity, so they save some interest payments (they can raise the interest payments to lure clients)
 	\end{itemize}
 \end{itemize}
+\end{frame}
 
 \subsection{Repayment cases}
 \begin{frame}
-\frametitle{\insertsection / \insertsubsection}
-\begin{itemize}
-	\item If at a 
-	\item If none of the market price ends a day (closing price) at 60\% of its initial value (called base or standard) : the knock-in is not active and the reimbursement is total.
-\end{itemize}
+\myframetitle{}
+\begin{table}[c]
+	\centering
+	\begin{tabular}{|c|c|c|c|} 
+    \hline
+    \multicolumn{2}{|c|}{Repayment rate} & \multicolumn{2}{c|}{Knock-in} 										 \\
+		\cline{3-4}
+    \multicolumn{2}{|c|}{}  						 & Not activated 	& Activated 											 \\
+    \hline
+		Knock-out & Not activated 					 & 1 							& $min(\frac{S_{j,T}}{S_{j,0}},1)$ \\
+		\cline{2-4}
+							& Activated 							 & 1 							&	1 															 \\
+    \hline
+	\end{tabular}
+	\caption{The different rates of repayment cases, depending on realization of knock-in and knock-out}
+	%\label{}
+\end{table}
+
+\end{frame}
 
 \subsection{Risks}
 \begin{frame}
-\frametitle{\insertsection / \insertsubsection}
+\myframetitle{}
 \begin{itemize}
 	\item The product is rated 
 \end{itemize}
@@ -43,7 +58,7 @@
 
 \subsection{Estimation of parameters}
 \begin{frame}
-\frametitle{\insertsection / \insertsubsection}
+\myframetitle{}
 \begin{itemize}
 	\item We estimate over 3 or 6 months the mean $\mu$, the volatility $\sigma$ of each market price, plus the correlation $\rho$ between them both.
 	\item The formulas are, with $u_{j,i} = \log_e\bigl(\frac{S_{j,i-1}}{S_{j,i}}\bigr)$
@@ -57,7 +72,7 @@
 
 \subsection{Geometric Brownian Motion}
 \begin{frame}
-\frametitle{\insertsection / \insertsubsection}
+\myframetitle{}
 \begin{itemize}
   \item Notations :
 	\begin{itemize}
