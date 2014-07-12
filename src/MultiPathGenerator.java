@@ -131,7 +131,7 @@ public class MultiPathGenerator
 						
 						//Generate new closing price
 						float gbm = 0.f;
-						float mu = 0.01f;
+						float mu = currentMarketPrice.getMu();
 						float cVolatility = currentMarketPrice.getVolatility();
 						float currentPrice = currentMarketPrice.getCurrentPrice();
 						float currentTimeStep = timeStep.get(j) / (float)numberOfSubStep;
@@ -141,9 +141,17 @@ public class MultiPathGenerator
 							float firstNormalSample = normalSamples.get(0);
 							float secondNormalSample = normalSamples.get(1);
 							normalSamples.setElementAt((float) (firstNormalSample * correlation + Math.sqrt(1-correlation * correlation) * secondNormalSample), 1);
+							if(Float.isNaN(firstNormalSample) || Float.isNaN(secondNormalSample))
+							{
+								System.out.println("Oups...");
+							}
 						}
 	
 						gbm = (float) (currentPrice * Math.exp( (mu - 0.5f * cVolatility*cVolatility) * currentTimeStep + cVolatility*Math.sqrt(currentTimeStep) * normalSamples.get(j)));
+						if(Float.isNaN(gbm))
+						{
+							System.out.println("Oups...");
+						}
 						currentPrice = gbm;
 						
 						closingPrices.setElementAt(gbm, j);

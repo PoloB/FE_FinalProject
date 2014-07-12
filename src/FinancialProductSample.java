@@ -54,6 +54,10 @@ public class FinancialProductSample
 				//Let's calculate the return of our product
 				gain += interestRate / (float)financialProductDefinition.getNumberOfPaymentPerYear(); //Add discount
 				numberOfPaymentRealized++;
+				if(Float.isNaN(gain))
+				{
+					System.out.println("Oups");
+				}
 			}
 		}
 	}
@@ -77,6 +81,10 @@ public class FinancialProductSample
 				float m2 = Math.min(m1, 1.f);
 				
 				gain += m2;
+				if(Float.isNaN(gain))
+				{
+					System.out.println("Oups");
+				}
 			}
 		}
 	}

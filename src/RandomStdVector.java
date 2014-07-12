@@ -16,7 +16,15 @@ public class RandomStdVector extends RandomVector
 		{
 			Vector<Float> temp = new Vector<Float>();
 			for(int j=0; j< nbrMarketPrice; ++j)
+			{
+				float r=0.f;
+				while(r==0.f || r==1.f)
+				{
+					r = rand.nextFloat();
+				}
+				
 				temp.add(rand.nextFloat());
+			}
 			
 			result.add(temp);
 		}

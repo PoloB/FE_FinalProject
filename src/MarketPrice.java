@@ -10,6 +10,7 @@ public class MarketPrice
 	private Vector<Date> holidays = new Vector<Date>();
 	private Vector<Float> historicalData = new Vector<Float>();
     private int numberOfClosingDayPerYear;
+    private float mu;
 	
     public MarketPrice()
     {
@@ -131,6 +132,8 @@ public class MarketPrice
 		
 		mean /= (numberOfClosingDayPerYear*historicalDataSize/12.f);
 		
+		mu = mean;
+		
 		// Volatility of u(i)
 		for (int j=0; j<historicalData.size()-1; j++)
 		{
@@ -164,6 +167,7 @@ public class MarketPrice
 		holidays = new Vector<Date>(mp.holidays);
 		historicalData = new Vector<Float>(mp.historicalData); 
 	    numberOfClosingDayPerYear = mp.numberOfClosingDayPerYear;
+	    mu = mp.mu;
 	}
 
 	//Getters
@@ -173,10 +177,12 @@ public class MarketPrice
 	public int getNumberOfClosingDayPerYear() { return numberOfClosingDayPerYear; }
 	public Vector<Integer> getWeeklyClosedDays() { return weeklyClosedDays; }
 	public Vector<Date> getHolydays() { return holidays; }
+	public float getMu() { return mu; }
 	
 	//Setters
 	public void setCurrentPrice(float cP) { currentPrice = cP; }
 	public void setVolatility(float v) { volatility = v; }
+	public void setMu(float m) { mu = m; }
 	public void setNumberOfClosingDaysPerYear(int nocdpy) {numberOfClosingDayPerYear = nocdpy; }
 	
 	//Miscenallous
@@ -221,6 +227,7 @@ public class MarketPrice
 		copy.setCurrentPrice(currentPrice);
 		copy.setVolatility(volatility);
 		copy.setNumberOfClosingDaysPerYear(numberOfClosingDayPerYear);
+		copy.setMu(mu);
 		
 		return copy;
 	}

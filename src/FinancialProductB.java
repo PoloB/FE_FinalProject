@@ -8,7 +8,7 @@ public class FinancialProductB extends FinancialProduct {
 		startDate = context.getCurrentDay();
 		int endYear = startDate.getYear() + 3;
 		endDate = new Date(startDate.getDay(),startDate.getMonth(),endYear);
-		knockInValue = 0.6f;
+		knockInValue = 0.3f;
 		knockOutValue = 1.05f;
 		interestRate = 0.03f;
 		numberOfPaymentPerYear = 2;
