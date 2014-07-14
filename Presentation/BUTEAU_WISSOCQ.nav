@@ -1,4 +1,4 @@
-\beamer@endinputifotherversion {3.33pt}
+\beamer@endinputifotherversion {3.32pt}
 \headcommand {\slideentry {0}{0}{1}{1/1}{}{0}}
 \headcommand {\beamer@framepages {1}{1}}
 \headcommand {\slideentry {0}{0}{2}{2/2}{}{0}}
@@ -29,23 +29,35 @@
 \headcommand {\sectionentry {3}{Result}{9}{Result}{0}}
 \headcommand {\beamer@sectionpages {4}{8}}
 \headcommand {\beamer@subsectionpages {8}{8}}
-\headcommand {\beamer@subsectionentry {0}{3}{1}{9}{Simulation of indexes}}\headcommand {\beamer@subsectionpages {9}{8}}
-\headcommand {\slideentry {3}{1}{1}{9/9}{Simulation of indexes}{0}}
+\headcommand {\beamer@subsectionentry {0}{3}{1}{9}{Probability of loss}}\headcommand {\beamer@subsectionpages {9}{8}}
+\headcommand {\slideentry {3}{1}{1}{9/9}{Probability of loss}{0}}
 \headcommand {\beamer@framepages {9}{9}}
+<<<<<<< HEAD
 \headcommand {\beamer@subsectionentry {0}{3}{2}{10}{Expected return}}\headcommand {\beamer@subsectionpages {9}{9}}
 \headcommand {\slideentry {3}{2}{1}{10/10}{Expected return}{0}}
 \headcommand {\beamer@framepages {10}{10}}
 \headcommand {\beamer@subsectionentry {0}{3}{3}{11}{Probability of loss}}\headcommand {\beamer@subsectionpages {10}{10}}
 \headcommand {\slideentry {3}{3}{1}{11/11}{Probability of loss}{0}}
+=======
+\headcommand {\beamer@subsectionentry {0}{3}{2}{10}{Histogram of the return}}\headcommand {\beamer@subsectionpages {9}{9}}
+\headcommand {\slideentry {3}{2}{1}{10/10}{Histogram of the return}{0}}
+\headcommand {\beamer@framepages {10}{10}}
+\headcommand {\beamer@subsectionentry {0}{3}{3}{11}{Numerical efficiency}}\headcommand {\beamer@subsectionpages {10}{10}}
+\headcommand {\slideentry {3}{3}{1}{11/11}{Numerical efficiency}{0}}
+>>>>>>> origin/master
 \headcommand {\beamer@framepages {11}{11}}
-\headcommand {\beamer@subsectionentry {0}{3}{4}{12}{Numerical efficiency}}\headcommand {\beamer@subsectionpages {11}{11}}
-\headcommand {\slideentry {3}{4}{1}{12/12}{Numerical efficiency}{0}}
+\headcommand {\beamer@subsectionentry {0}{3}{4}{12}{Sensitivity analysis}}\headcommand {\beamer@subsectionpages {11}{11}}
+\headcommand {\slideentry {3}{4}{1}{12/12}{Sensitivity analysis}{0}}
 \headcommand {\beamer@framepages {12}{12}}
-\headcommand {\beamer@subsectionentry {0}{3}{5}{13}{Sensitivity analysis}}\headcommand {\beamer@subsectionpages {12}{12}}
-\headcommand {\slideentry {3}{5}{1}{13/13}{Sensitivity analysis}{0}}
+\headcommand {\beamer@subsectionentry {0}{3}{5}{13}{Comparison with Product A}}\headcommand {\beamer@subsectionpages {12}{12}}
+\headcommand {\slideentry {3}{5}{1}{13/13}{Comparison with Product A}{0}}
 \headcommand {\beamer@framepages {13}{13}}
-\headcommand {\slideentry {3}{5}{2}{14/14}{Sensitivity analysis}{0}}
+\headcommand {\sectionentry {4}{Conclusion}{14}{Conclusion}{0}}
+\headcommand {\beamer@sectionpages {9}{13}}
+\headcommand {\beamer@subsectionpages {13}{13}}
+\headcommand {\slideentry {4}{0}{2}{14/14}{}{0}}
 \headcommand {\beamer@framepages {14}{14}}
+<<<<<<< HEAD
 \headcommand {\sectionentry {4}{Conclusion}{15}{Conclusion}{0}}
 \headcommand {\beamer@sectionpages {9}{14}}
 \headcommand {\beamer@subsectionpages {13}{14}}
@@ -58,3 +70,12 @@
 \headcommand {\beamer@sectionpages {15}{16}}
 \headcommand {\beamer@documentpages {16}}
 \headcommand {\def \inserttotalframenumber {16}}
+=======
+\headcommand {\slideentry {4}{0}{3}{15/15}{}{0}}
+\headcommand {\beamer@framepages {15}{15}}
+\headcommand {\beamer@partpages {1}{15}}
+\headcommand {\beamer@subsectionpages {14}{15}}
+\headcommand {\beamer@sectionpages {14}{15}}
+\headcommand {\beamer@documentpages {15}}
+\headcommand {\def \inserttotalframenumber {15}}
+>>>>>>> origin/master
