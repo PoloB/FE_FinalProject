@@ -5,20 +5,21 @@
 \myframetitle{}
 Simulation of S\&P500 and Nikkei225 using GBM process:
 \begin{itemize}
-	\item S\&P500 \\
+	\item S\&P500 $\sigma = 23 \%$ \\
 	\begin{center}
 	\vspace{0.3cm}
 	\includegraphics[width=0.7\linewidth]{../Report/SandP500_simulated}
 	\end{center}
-	\item Nikkei225 \\
+	\item Nikkei225 $\sigma = 43 \%$\\
 	\begin{center}
 	\vspace{0.3cm}
 	\includegraphics[width=0.7\linewidth]{../Report/Nikkei225_simulated}
 	\end{center}
+	
 \end{itemize}
 \end{frame}
 
-\subsection{Probability of loss}
+\subsection{Expected return}
 \begin{frame}[c]
 \myframetitle{}
 Estimation of the financial product return
@@ -35,7 +36,7 @@ Estimation of the financial product return
 
 \end{frame}
 
-\subsection{Histogram of the return}
+\subsection{Probability of loss}
 \begin{frame}
 \myframetitle{}
 Cumulative density function of the return: \\
@@ -80,8 +81,12 @@ Return for different Knock-in value:
 \begin{frame}[c]
 \myframetitle{}
 \begin{itemize}
-	\item A possible way to make this product fair would be to set the knock-in value around 20 \%.
-	\item []
+	\item A possible way to make this product fair would be to set:
+	\begin{itemize}
+			\item the knock-in value around 20 \% (non realistic)
+			\item the interest rate to 14 \%
+	\end{itemize}
+	\item Removing the knock-out makes the product less valuable for the investor (-32 \%)
 	\item For a knock-in value of 30 \% we can make the following comments: \\
 	\begin{itemize}
 		\item Daiwa still makes a profit which is around 10 \% of the investment
@@ -90,19 +95,19 @@ Return for different Knock-in value:
 \end{itemize}
 \end{frame}
 
-\subsection{Comparison with Product A}
-\begin{frame}
-\myframetitle{}
-\begin{itemize}
-	\item 2 indexes : EuroSTOXX50 \& Nikkei225, T = 5 years, Knock-out 49\% 
-	$$
-	r = 
-	\left \{
-	\begin{array}{ll}
-    1\%   & \mbox{if one of the index is under 80\% of its initial value} \\
-		5.7\% & \mbox{else, or it is the first interest payment}
-  \end{array}
-	\right.
-	$$
-\end{itemize}
-\end{frame}
+%\subsection{Comparison with Product A}
+%\begin{frame}
+%\myframetitle{}
+%\begin{itemize}
+%	\item 2 indexes : EuroSTOXX50 \& Nikkei225, T = 5 years, Knock-out 49\% 
+%	$$
+%	r = 
+%	\left \{
+%	\begin{array}{ll}
+%    1\%   & \mbox{if one of the index is under 80\% of its initial value} \\
+%		5.7\% & \mbox{else, or it is the first interest payment}
+%  \end{array}
+%	\right.
+%	$$
+%\end{itemize}
+%\end{frame}

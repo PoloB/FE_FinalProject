@@ -11,10 +11,11 @@ public class MarketPricePath
 	public MarketPricePath(Vector<MarketPrice> mpg)
 	{
 		marketPriceGroup = mpg;
+		covariance =0.f;
 		
 		//Suppose there are only two market price in the vector
-		if(Context.get().volatilityIsDynamic())
-		{	
+		//if(Context.get().volatilityIsDynamic())
+		//{	
 			//Calculate the covariance based on the historical data
 			int historicalDataSize = mpg.get(0).getHistoricalData().size();
 		
@@ -22,26 +23,57 @@ public class MarketPricePath
 			{
 				float price1 = mpg.get(0).getHistoricalData().get(i);
 				float price2 = mpg.get(1).getHistoricalData().get(i);
+				float previousPrice1 = -1.f;
+				float previousPrice2 = -1.f;
 				int i1 = 1, i2 =1;
 				
 				if(!(price1 <0.f && price2<0.f))
-				{
+				{	
 					while(price1 < 0.f && i+i1 < historicalDataSize-1)
 					{
 						price1 = mpg.get(0).getHistoricalData().get(i+i1);
 						i1++;
+						
+						int cpt1=1;
+						previousPrice1 = mpg.get(0).getHistoricalData().get(i1+cpt1);
+						
+						while(previousPrice1 <= 0.f && i1+cpt1 < mpg.get(0).getHistoricalData().size()-1)
+						{
+							cpt1++;
+							previousPrice1 = mpg.get(0).getHistoricalData().get(i1+cpt1);
+						}
 					}
 					
 					while(price2 < 0.f && i+i2 < historicalDataSize-1)
 					{
-						price2 = mpg.get(0).getHistoricalData().get(i+i2);
+						price2 = mpg.get(1).getHistoricalData().get(i+i2);
 						i2++;
+						
+						int cpt1=1;
+						previousPrice2 = mpg.get(1).getHistoricalData().get(i2+cpt1);
+						
+						while(previousPrice2 <=0.f && i2+cpt1 < mpg.get(1).getHistoricalData().size()-1)
+						{
+							cpt1++;
+							previousPrice2 = mpg.get(1).getHistoricalData().get(i2+cpt1);
+						}
+						
 					}
+					
 					//Push ui * vi in the covariance
-					if(price1 > 0.f && price2 > 0.f)
-						covariance += price1 * price2;
+					if(price1 > 0.f && price2 > 0.f && previousPrice1 > 0.f && previousPrice2 > 0.f)
+						covariance += (Math.log(price1/previousPrice1) * Math.log(price2/previousPrice2))/(mpg.get(0).getNumberOfClosingDayPerYear()-1);
+					
+					if(Float.isInfinite(covariance))
+					{
+						System.out.println("Oups...");
+					}
 				}
-			}
+				if(Float.isInfinite(covariance))
+				{
+					System.out.println("Oups...");
+				}
+			//}
 			
 			covariance *= 0.5 * (mpg.get(0).getNumberOfClosingDayPerYear() + mpg.get(1).getNumberOfClosingDayPerYear()) * historicalDataSize / 365.f;
 		}
