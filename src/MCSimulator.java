@@ -76,7 +76,7 @@ public class MCSimulator
 				}
 				
 				//Debug
-				writer.println(today.toString() + "; " + marketPricePaths.get(0).getMarketPrices().get(0).getCurrentPrice() + "; " + marketPricePaths.get(0).getMarketPrices().get(1).getCurrentPrice() + "; " + financialProducts.get(0).getGain());
+				//writer.println(today.toString() + "; " + marketPricePaths.get(0).getMarketPrices().get(0).getCurrentPrice() + "; " + marketPricePaths.get(0).getMarketPrices().get(1).getCurrentPrice() + "; " + financialProducts.get(0).getGain());
 				today.next();
 			}
 			
@@ -91,12 +91,12 @@ public class MCSimulator
 				//Push the gain into the result buffer
 				result.addProfit(financialProducts.get(k).getGain());
 				
-				/*if((k+1) % context.getResultStep() == 0 && k != 0)
+				if((k+1) % context.getResultStep() == 0 && k != 0)
 				{
 					//Display the mean and variance
 					
 					writer.println(k + "; " + result.mean() + "; " + result.variance());
-				}*/
+				}
 				
 				//writer.println(financialProducts.get(k).getGain());
 			}

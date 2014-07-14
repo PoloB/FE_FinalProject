@@ -32,11 +32,11 @@
 \headcommand {\beamer@subsectionentry {0}{3}{1}{9}{Simulation of indexes}}\headcommand {\beamer@subsectionpages {9}{8}}
 \headcommand {\slideentry {3}{1}{1}{9/9}{Simulation of indexes}{0}}
 \headcommand {\beamer@framepages {9}{9}}
-\headcommand {\beamer@subsectionentry {0}{3}{2}{10}{Probability of loss}}\headcommand {\beamer@subsectionpages {9}{9}}
-\headcommand {\slideentry {3}{2}{1}{10/10}{Probability of loss}{0}}
+\headcommand {\beamer@subsectionentry {0}{3}{2}{10}{Expected return}}\headcommand {\beamer@subsectionpages {9}{9}}
+\headcommand {\slideentry {3}{2}{1}{10/10}{Expected return}{0}}
 \headcommand {\beamer@framepages {10}{10}}
-\headcommand {\beamer@subsectionentry {0}{3}{3}{11}{Histogram of the return}}\headcommand {\beamer@subsectionpages {10}{10}}
-\headcommand {\slideentry {3}{3}{1}{11/11}{Histogram of the return}{0}}
+\headcommand {\beamer@subsectionentry {0}{3}{3}{11}{Probability of loss}}\headcommand {\beamer@subsectionpages {10}{10}}
+\headcommand {\slideentry {3}{3}{1}{11/11}{Probability of loss}{0}}
 \headcommand {\beamer@framepages {11}{11}}
 \headcommand {\beamer@subsectionentry {0}{3}{4}{12}{Numerical efficiency}}\headcommand {\beamer@subsectionpages {11}{11}}
 \headcommand {\slideentry {3}{4}{1}{12/12}{Numerical efficiency}{0}}
@@ -46,18 +46,15 @@
 \headcommand {\beamer@framepages {13}{13}}
 \headcommand {\slideentry {3}{5}{2}{14/14}{Sensitivity analysis}{0}}
 \headcommand {\beamer@framepages {14}{14}}
-\headcommand {\beamer@subsectionentry {0}{3}{6}{15}{Comparison with Product A}}\headcommand {\beamer@subsectionpages {13}{14}}
-\headcommand {\slideentry {3}{6}{1}{15/15}{Comparison with Product A}{0}}
+\headcommand {\sectionentry {4}{Conclusion}{15}{Conclusion}{0}}
+\headcommand {\beamer@sectionpages {9}{14}}
+\headcommand {\beamer@subsectionpages {13}{14}}
+\headcommand {\slideentry {4}{0}{3}{15/15}{}{0}}
 \headcommand {\beamer@framepages {15}{15}}
-\headcommand {\sectionentry {4}{Conclusion}{16}{Conclusion}{0}}
-\headcommand {\beamer@sectionpages {9}{15}}
-\headcommand {\beamer@subsectionpages {15}{15}}
-\headcommand {\slideentry {4}{0}{2}{16/16}{}{0}}
+\headcommand {\slideentry {4}{0}{4}{16/16}{}{0}}
 \headcommand {\beamer@framepages {16}{16}}
-\headcommand {\slideentry {4}{0}{3}{17/17}{}{0}}
-\headcommand {\beamer@framepages {17}{17}}
-\headcommand {\beamer@partpages {1}{17}}
-\headcommand {\beamer@subsectionpages {16}{17}}
-\headcommand {\beamer@sectionpages {16}{17}}
-\headcommand {\beamer@documentpages {17}}
-\headcommand {\def \inserttotalframenumber {17}}
+\headcommand {\beamer@partpages {1}{16}}
+\headcommand {\beamer@subsectionpages {15}{16}}
+\headcommand {\beamer@sectionpages {15}{16}}
+\headcommand {\beamer@documentpages {16}}
+\headcommand {\def \inserttotalframenumber {16}}

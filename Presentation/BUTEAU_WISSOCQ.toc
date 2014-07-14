@@ -8,9 +8,8 @@
 \beamer@subsectionintoc {2}{5}{Estimation of parameters}{8}{0}{2}
 \beamer@sectionintoc {3}{Result}{9}{0}{3}
 \beamer@subsectionintoc {3}{1}{Simulation of indexes}{9}{0}{3}
-\beamer@subsectionintoc {3}{2}{Probability of loss}{10}{0}{3}
-\beamer@subsectionintoc {3}{3}{Histogram of the return}{11}{0}{3}
+\beamer@subsectionintoc {3}{2}{Expected return}{10}{0}{3}
+\beamer@subsectionintoc {3}{3}{Probability of loss}{11}{0}{3}
 \beamer@subsectionintoc {3}{4}{Numerical efficiency}{12}{0}{3}
 \beamer@subsectionintoc {3}{5}{Sensitivity analysis}{13}{0}{3}
-\beamer@subsectionintoc {3}{6}{Comparison with Product A}{15}{0}{3}
-\beamer@sectionintoc {4}{Conclusion}{16}{0}{4}
+\beamer@sectionintoc {4}{Conclusion}{15}{0}{4}

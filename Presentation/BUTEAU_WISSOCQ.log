@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.9.28)  8 JUL 2014 04:48
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.9.28)  8 JUL 2014 11:52
 entering extended mode
 **BUTEAU_WISSOCQ.tex
 
@@ -1003,20 +1003,20 @@ tex" [4
 
 ])
 ("C:\Users\Polo\Documents\Git Repositories\FE_FinalProject\Presentation\Result.
-tex" <../Report/SandP500_simulated.png, id=205, 1212.78094pt x 337.26pt>
+tex" <../Report/SandP500_simulated.png, id=199, 1212.78094pt x 337.26pt>
 File: ../Report/SandP500_simulated.png Graphic file (type png)
 
 <use ../Report/SandP500_simulated.png>
-Package pdftex.def Info: ../Report/SandP500_simulated.png used on input line 19
+Package pdftex.def Info: ../Report/SandP500_simulated.png used on input line 20
 .
 (pdftex.def)             Requested size: 224.2757pt x 62.36638pt.
 
-<../Report/Nikkei225_simulated.png, id=206, 1239.88219pt x 341.02406pt>
+<../Report/Nikkei225_simulated.png, id=200, 1239.88219pt x 341.02406pt>
 File: ../Report/Nikkei225_simulated.png Graphic file (type png)
 
 <use ../Report/Nikkei225_simulated.png>
-Package pdftex.def Info: ../Report/Nikkei225_simulated.png used on input line 1
-9.
+Package pdftex.def Info: ../Report/Nikkei225_simulated.png used on input line 2
+0.
 (pdftex.def)             Requested size: 224.2757pt x 61.68349pt.
  [9
 
@@ -1027,56 +1027,56 @@ lated.png> <C:/Users/Polo/Documents/Git Repositories/FE_FinalProject/Report/Nik
 kei225_simulated.png>] [10
 
 ]
-<../Report/Gain.png, id=227, 1018.55531pt x 492.33937pt>
+<../Report/Gain.png, id=221, 1018.55531pt x 492.33937pt>
 File: ../Report/Gain.png Graphic file (type png)
 
 <use ../Report/Gain.png>
-Package pdftex.def Info: ../Report/Gain.png used on input line 48.
+Package pdftex.def Info: ../Report/Gain.png used on input line 49.
 (pdftex.def)             Requested size: 308.06367pt x 148.90494pt.
  [11
 
  <C:/Users/Polo/Documents/Git Repositories/FE_FinalProject/Report/Gain.png>]
-<../Report/Mean_of_the_gain.png, id=238, 960.58875pt x 264.23718pt>
+<../Report/Mean_of_the_gain.png, id=232, 960.58875pt x 264.23718pt>
 File: ../Report/Mean_of_the_gain.png Graphic file (type png)
 
 <use ../Report/Mean_of_the_gain.png>
-Package pdftex.def Info: ../Report/Mean_of_the_gain.png used on input line 61.
+Package pdftex.def Info: ../Report/Mean_of_the_gain.png used on input line 62.
 (pdftex.def)             Requested size: 308.06367pt x 84.74309pt.
 
-<../Report/Variance_of_the_gain.png, id=239, 959.08313pt x 309.40594pt>
+<../Report/Variance_of_the_gain.png, id=233, 959.08313pt x 309.40594pt>
 File: ../Report/Variance_of_the_gain.png Graphic file (type png)
 
 <use ../Report/Variance_of_the_gain.png>
 Package pdftex.def Info: ../Report/Variance_of_the_gain.png used on input line 
-61.
+62.
 (pdftex.def)             Requested size: 308.06367pt x 99.38489pt.
  [12
 
  <C:/Users/Polo/Documents/Git Repositories/FE_FinalProject/Report/Mean_of_the_g
 ain.png> <C:/Users/Polo/Documents/Git Repositories/FE_FinalProject/Report/Varia
 nce_of_the_gain.png>]
-<../Report/Mean_depending_on_knockin.png, id=250, 789.70032pt x 469.00218pt>
+<../Report/Mean_depending_on_knockin.png, id=244, 789.70032pt x 469.00218pt>
 File: ../Report/Mean_depending_on_knockin.png Graphic file (type png)
 
 <use ../Report/Mean_depending_on_knockin.png>
 Package pdftex.def Info: ../Report/Mean_depending_on_knockin.png used on input 
-line 78.
+line 79.
 (pdftex.def)             Requested size: 102.68962pt x 60.98672pt.
 
-<../Report/Variance_depending_on_knockin.png, id=252, 789.70032pt x 469.00218pt
+<../Report/Variance_depending_on_knockin.png, id=246, 789.70032pt x 469.00218pt
 >
 File: ../Report/Variance_depending_on_knockin.png Graphic file (type png)
  <use ../Report/Variance_depending_on_knockin.png>
 Package pdftex.def Info: ../Report/Variance_depending_on_knockin.png used on in
-put line 78.
+put line 79.
 (pdftex.def)             Requested size: 102.68962pt x 60.98672pt.
 
-<../Report/KnockInCDFComparaison.png, id=253, 1044.90375pt x 542.025pt>
+<../Report/KnockInCDFComparaison.png, id=247, 1044.90375pt x 542.025pt>
 File: ../Report/KnockInCDFComparaison.png Graphic file (type png)
 
 <use ../Report/KnockInCDFComparaison.png>
 Package pdftex.def Info: ../Report/KnockInCDFComparaison.png used on input line
- 78.
+ 79.
 (pdftex.def)             Requested size: 171.14764pt x 88.77689pt.
  [13
 
@@ -1085,11 +1085,9 @@ g_on_knockin.png> <C:/Users/Polo/Documents/Git Repositories/FE_FinalProject/Rep
 ort/Variance_depending_on_knockin.png> <C:/Users/Polo/Documents/Git Repositorie
 s/FE_FinalProject/Report/KnockInCDFComparaison.png>] [14
 
-] [15
-
 ])
 ("C:\Users\Polo\Documents\Git Repositories\FE_FinalProject\Presentation\Conclus
-ion.tex" <../Report/SandP500_evolution.png, id=288, 808.52063pt x 458.46281pt>
+ion.tex" <../Report/SandP500_evolution.png, id=272, 808.52063pt x 458.46281pt>
 File: ../Report/SandP500_evolution.png Graphic file (type png)
 
 <use ../Report/SandP500_evolution.png>
@@ -1097,20 +1095,20 @@ Package pdftex.def Info: ../Report/SandP500_evolution.png used on input line 24
 .
 (pdftex.def)             Requested size: 167.72658pt x 95.10477pt.
 
-<../Report/Nikkei225_evolution.png, id=289, 809.27344pt x 451.6875pt>
+<../Report/Nikkei225_evolution.png, id=273, 809.27344pt x 451.6875pt>
 File: ../Report/Nikkei225_evolution.png Graphic file (type png)
 
 <use ../Report/Nikkei225_evolution.png>
 Package pdftex.def Info: ../Report/Nikkei225_evolution.png used on input line 2
 4.
 (pdftex.def)             Requested size: 167.72658pt x 93.60968pt.
- [16
+ [15
 
 
 
  <C:/Users/Polo/Documents/Git Repositories/FE_FinalProject/Report/SandP500_evol
 ution.png> <C:/Users/Polo/Documents/Git Repositories/FE_FinalProject/Report/Nik
-kei225_evolution.png>]) [17
+kei225_evolution.png>]) [16
 
 
  <C:/Program Files (x86)/MiKTeX 2.9/tex/latex/beamer/base/art/beamericonbook.pd
@@ -1134,7 +1132,7 @@ ion.aux"))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 50.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 50.
 Package rerunfilecheck Info: File `BUTEAU_WISSOCQ.out' has not changed.
-(rerunfilecheck)             Checksum: DF206DD1EF3A8A663B0866F4DF60B30E;950.
+(rerunfilecheck)             Checksum: 762D78030236FB337C9B9522B169650D;865.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -1146,10 +1144,10 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 50.
  ) 
 Here is how much of TeX's memory you used:
- 16127 strings out of 493921
- 308851 string characters out of 3144879
- 370016 words of memory out of 3000000
- 18933 multiletter control sequences out of 15000+200000
+ 16119 strings out of 493921
+ 308768 string characters out of 3144879
+ 370017 words of memory out of 3000000
+ 18928 multiletter control sequences out of 15000+200000
  15837 words of font info for 58 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  56i,16n,62p,404b,598s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1168,9 +1166,9 @@ x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmssi8.pfb><C:/Program Files (x8
 KTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files (x86)/MiKTe
 X 2.9/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Program Files (x86)/MiKTeX 2
 .9/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on BUTEAU_WISSOCQ.pdf (17 pages, 588925 bytes).
+Output written on BUTEAU_WISSOCQ.pdf (16 pages, 585367 bytes).
 PDF statistics:
- 377 PDF objects out of 1000 (max. 8388607)
- 51 named destinations out of 1000 (max. 500000)
- 243 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 360 PDF objects out of 1000 (max. 8388607)
+ 48 named destinations out of 1000 (max. 500000)
+ 235 words of extra memory for PDF output out of 10000 (max. 10000000)
 
